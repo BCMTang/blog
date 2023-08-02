@@ -1,0 +1,59 @@
+[book]
+authors = ["tzj"]
+language = "zh-cn"
+multilingual = false
+description = "2023-07-28 11:09:13 tzj 过一遍组件库"
+src = "src"
+title = "网易游戏组件库文档"
+
+[Build]
+build-dir = "book/" # 渲染地址
+create-missing = true # 目录文件不存在时是否生成文件
+
+[output.html.playground]
+editable = true
+# 全局设置代码可编辑，单个代码段，加上`,editable`，如：```js,editable    ```
+copy-js = false
+
+[preprocessor.theme]
+#pagetoc = true
+
+[output.html]
+#theme = "theme"
+#default-theme = "light"
+#preferred-dark-theme = "navy"
+#curly-quotes = true
+#mathjax-support = false
+#copy-fonts = true
+additional-css = ["theme/css/nav.css"] #如果您需要稍微更改图书的外观，而不覆盖整个样式,则可以指定一组 css 样式表,这些样式表将在默认情况下加载,这样您就通过’外科手术’更改样式。
+additional-js = ["theme/js/searcher.js","theme/js/nav.js"] #如果您需要在不删除当前行为的情况下，向书中添加某些行为,则可以指定一组，将与默认文件一起加载的
+no-section-label = false #默认情况下,mdBook 在目录列中，添加章节标签编号。例如,“1.”,“2.1”。将此选项设置为 true 可禁用这些标签.默认为false
+#git-repository-url = "https://github.com/rust-lang/mdBook" #这本书的 git 存储库的 URL。如果提供,将在书的菜单栏中，输出图标链接。
+#git-repository-icon = "fa-github" #用于 git 存储库链接的 FontAwesome 图标类。默认为fa-github。看起来就像
+#edit-url-template = "https://github.com/rust-lang/mdBook/edit/master/guide/{path}"  #编辑按钮, 提供 “编辑” 按钮 (看起来就像 ) ，方便定位到源代码的文档文件
+#site-url = "/example-book/" #主页网址。确保网页的链接 和 script/css 为正确路径。默认为/
+#cname = "myproject.rs" #DNS 子域名 或是 apex 域名 。写入根目录下的 CNAME 文件中，就像 GitHub Pages 的 CNAME 一样
+input-404 = "404.md"
+
+[output.html.fold]
+enable = true    # whether or not to enable section folding 默认是false。
+level = 2        # the depth to start folding  开启折叠的层级。level 如果是 0, 全部折叠。默认为0。
+
+
+[output.html.search]
+enable = true            # enables the search feature                           启用搜索功能.默认为true。
+limit-results = 30       # maximum number of search results                     搜索结果的最大数量.默认为30。
+teaser-word-count = 30   # number of words used for a search result teaser      搜索结果预告的单词数。默认为30。
+use-boolean-and = true   # multiple search terms must all match                 定义多个搜索词之间的逻辑链接。如果为 true,则所有搜索词必须出现在每个结果中。默认为true。
+boost-title = 2          # ranking boost factor for matches in headers          如果标题中出现搜索词,则提升搜索结果。默认为2。
+boost-hierarchy = 1      # ranking boost factor for matches in page names       如果搜索结果出现在层次结构中,则提升搜索结果。层次结构包含父文档的所有标题，和所有父标题。默认为1。
+boost-paragraph = 1      # ranking boost factor for matches in text             如果搜索词出现在文本中,则提升搜索结果。默认为1。
+expand = true            # partial words will match longer terms                默认搜索匹配更长的结果。搜索micro应该匹配microwave。默认为true。
+heading-split-level = 3  # link results to heading levels                       搜索结果将链接到包含结果的文档部分。文档按此级别或更低级别划分为多个部分。默认为3.(### This is a level 3 heading)
+copy-js = true           # include Javascript code for search                   将搜索实现的 JavaScript 文件，复制到输出目录。默认为true。
+
+
+
+#[preprocessor.foo]
+# 指定命令的使用
+#command = "python3 /path/to/foo.py"
