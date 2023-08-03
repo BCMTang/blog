@@ -1,0 +1,7 @@
+ol.chapter .chapter-item:not(.affix){
+    /*cursor: pointer;*/
+    margin-left: 1em;
+}
+ol.chapter .nav_toggle{
+    color: black;
+}

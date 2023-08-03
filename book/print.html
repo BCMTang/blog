@@ -1,0 +1,1173 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <!-- 2023-08-02 09:16:28 tzj -->
+        <meta charset="UTF-8">
+        <title>网易游戏组件库文档</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="2023-07-28 11:09:13 tzj 过一遍组件库">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/css/nav.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">首页</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">PC内部组件库</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基础类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="001.html"><strong aria-hidden="true">1.1.</strong> jQuery库</a></li><li class="chapter-item expanded "><a href="002.html"><strong aria-hidden="true">1.2.</strong> 分享组件shareV5</a></li><li class="chapter-item expanded "><a href="003.html"><strong aria-hidden="true">1.3.</strong> 图片查看器lightbox2</a></li><li class="chapter-item expanded "><a href="004.html"><strong aria-hidden="true">1.4.</strong> 官网订阅组件</a></li><li class="chapter-item expanded "><a href="005.html"><strong aria-hidden="true">1.5.</strong> 图册组件imageshow</a></li><li class="chapter-item expanded "><a href="006.html"><strong aria-hidden="true">1.6.</strong> 复制文本copytext</a></li><li class="chapter-item expanded "><a href="007.html"><strong aria-hidden="true">1.7.</strong> 弹层</a></li><li class="chapter-item expanded "><a href="008.html"><strong aria-hidden="true">1.8.</strong> 视频组件videoV2</a></li><li class="chapter-item expanded "><a href="009.html"><strong aria-hidden="true">1.9.</strong> 音频组件audio</a></li><li class="chapter-item expanded "><a href="010.html"><strong aria-hidden="true">1.10.</strong> 服务器时间组件bjTime</a></li><li class="chapter-item expanded "><a href="011.html"><strong aria-hidden="true">1.11.</strong> 插入flash</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.12.</strong> 翻页组件pager</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.13.</strong> 共用alert组件PopDialog</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.14.</strong> 表单验证组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.15.</strong> 序列组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.16.</strong> 3D相册轮播组件[旧版]</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.17.</strong> 3D相册轮播组件[V2版]</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.18.</strong> 二维码组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.19.</strong> 手游官网下载组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.20.</strong> 弹幕组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.21.</strong> 搜索模块</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.22.</strong> 滚动模块</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.23.</strong> 职业模块[废弃]</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.24.</strong> 文章内页</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.25.</strong> 营销点代码</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.26.</strong> 点击统计代码/监测代码</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.27.</strong> 内容工具组件</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 高级类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 快速注册</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> 登录组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.3.</strong> 投票系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.4.</strong> 评论系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.5.</strong> 抽奖效果组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.6.</strong> 图片延迟加载</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.7.</strong> 倒计时</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.8.</strong> 领取礼包码</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.9.</strong> 新站点申请章鱼[加白名单]</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.10.</strong> 预约接口手游</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.11.</strong> 手游os预约版下载地址</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.12.</strong> 新游预约组件旧版</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 系统类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> PM系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> PM系统-源文件及配置</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> 新闻发布系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.</strong> 新闻发布系统-索引页面配置发布</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> 新闻发布系统-More页面配置发布</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> 新闻发布系统-消息内容页面配置发布</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.</strong> 投票系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.</strong> 百科系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.9.</strong> 图库系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.10.</strong> 评论系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.11.</strong> 点赞系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.12.</strong> 视频专区</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 其他类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> 微博话题墙</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">移动内部组件</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 基础类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> 分享组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> 分享组件2</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.3.</strong> 加载组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.4.</strong> 摇一摇组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.5.</strong> 键启动组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.6.</strong> 分享监控组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.7.</strong> 视频H5组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.8.</strong> 手游渠道下载指引弹层</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">双端通用组件</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 基础类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> 图片上传组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> 图片裁剪组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> 3D地图组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.4.</strong> 图文Metro流组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.5.</strong> 新版新游预约组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.6.</strong> 网页加载与错误监控统计</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.7.</strong> 反馈组件</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">外部组件列表</li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 外部组件列表</div></li><li class="chapter-item expanded affix "><li class="part-title">FIS插件列表</li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 编译插件</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> parser-html-ejs</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.2.</strong> postprocessor-include</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.3.</strong> postprocessor-replace</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.4.</strong> preprocessor-resload</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 打包插件</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">9.1.</strong> deploy-local-supply</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.2.</strong> postpackager-html-encode</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.3.</strong> postpackager-supply</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.4.</strong> postpackager-tolist</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.5.</strong> postpackager-trueload</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.6.</strong> postpackager-usemin</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.7.</strong> postpackager-jpg-towebp</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">webpack插件列表</li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> loader</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">10.1.</strong> resload</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.2.</strong> html-supply</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.3.</strong> html-include</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">DIY自制</li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> css样式</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> js封装</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> html结构</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> plugin第三方插件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> utils工具使用</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.</strong> other其他未分类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="999.html"><strong aria-hidden="true">16.1.</strong> diy</a></li><li class="chapter-item expanded "><a href="998.html"><strong aria-hidden="true">16.2.</strong> mdbook</a></li><li class="chapter-item expanded "><a href="blog.html"><strong aria-hidden="true">16.3.</strong> blog</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="998.html">说明</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="侧边栏显/隐" aria-label="侧边栏显/隐" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="修改主题" aria-label="修改主题" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="搜索(快捷键：S)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">网易游戏组件库文档</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="打印该文档" aria-label="打印该文档">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="全局搜索：Ctrl+F" aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="首页"><a class="header" href="#首页">首页</a></h1>
+<blockquote>
+<p>该文档是对<a href="http://webpack.nie.netease.com/index.html">网易游戏部组件库</a>的组件尝试使用，对各个组件及其配置熟悉下。</p>
+</blockquote>
+<h1 id="导入"><a class="header" href="#导入">导入</a></h1>
+<pre><code class="language-html">&lt;!--国内内部组件--&gt;
+&lt;!--PC--&gt;
+&lt;script src=&quot;https://nie.res.netease.com/comm/js/jquery(mixNIE).1.11.js&quot;&gt;&lt;/script&gt;
+&lt;!--移动--&gt;
+&lt;script src=&quot;https://nie.res.netease.com/comm/js/zepto(mixNIE).last.js&quot;&gt;&lt;/script&gt;
+
+&lt;!--海外内部组件--&gt;
+&lt;!--PC--&gt;
+&lt;script src=&quot;https://comm.res.easebar.com/js/jquery(mixNIE).1.11.js&quot;&gt;&lt;/script&gt;
+&lt;!--移动--&gt;
+&lt;script src=&quot;https://comm.res.easebar.com/js/zepto(mixNIE).last.js&quot;&gt;&lt;/script&gt;
+
+&lt;!--代理合作--&gt;
+&lt;!--PC--&gt;
+&lt;script src=&quot;https://comm.res.easebar.com/js/tw/jquery(mixNIE).1.11.js&quot;&gt;&lt;/script&gt;
+&lt;!--移动--&gt;
+&lt;script src=&quot;https://comm.res.easebar.com/js/tw/zepto(mixNIE).last.js&quot;&gt;&lt;/script&gt;
+&lt;!--内部组件代理合作版不支持该组件库--&gt;
+</code></pre>
+<blockquote>
+<p><strong>规范</strong> 外部组件若域名是<code>nie.res.netease.com</code>则可以用外链，否则需下载到本地<code>src/js/lib/插件.js</code>。
+海外和代理合作，将域名替换为<code>comm.res.easebar.com</code>。</p>
+</blockquote>
+<h1 id="初始化"><a class="header" href="#初始化">初始化</a></h1>
+<blockquote>
+<p><strong>注意</strong> 所有内部组件<code>nie.require(&quot;nie.util.模块名&quot;)</code>必须写在<code>nie.define</code>的回调里，否则报错。</p>
+</blockquote>
+<pre><code class="language-js">// copyright 设置white，写在外面
+// nie.config.copyRight.setWhite();
+// 模块，一般一个就够了，Index为暴露全局的变量名
+nie.define(&quot;Index&quot;, function () {
+    //创建（分享）组件实例
+    const shareV5 = nie.require(&quot;nie.util.shareV5&quot;);
+    // 引入外部js，也可以是其他文件如.txt、.md，内容会直接插入
+    __inline('json.js');
+
+    const index = {
+        init: function () {
+            this.bind();
+            this.share();
+        },
+        bind: function () {
+            // 可以视为加载完成的回调
+        },
+        // 给模块定义方法
+        share: function () {
+            let shareTitle = $(&quot;#share_title&quot;).html();
+            let shareTxt = $(&quot;#share_desc&quot;).html();
+            let sharePic = $(&quot;#share_pic&quot;).attr(&quot;data-src&quot;);
+            let share = shareV5({
+                fat: &quot;#NIE-share&quot;,
+                type: 1,
+                defShow: [23, 2, 1, 24],
+                title: shareTitle,
+                content: shareTxt,
+                img: sharePic
+            });
+        }
+    }
+
+    index.init();
+    // 暴露给全局
+    return index
+});
+</code></pre>
+<p><a href="https://note.youdao.com/ynoteshare/index.html?id=6d1b1b5e350a6faabb680d814418292b&amp;type=note&amp;_time=1689903109543">授权接口</a></p>
+<h1 id="待处理"><a class="header" href="#待处理">待处理</a></h1>
+<ul>
+<li><input disabled="" type="checkbox"/>
+pre复制</li>
+<li><input disabled="" type="checkbox"/>
+路径加参数，自动跳转到指定页</li>
+<li><input disabled="" type="checkbox"/>
+弹出html，可编辑内容</li>
+</ul>
+<pre><code class="language-js">window.location.protocol+&quot;//&quot;+window.location.host; //   返回https://mp.csdn.net
+
+window.location.host; //返回url 的主机部分，例如：mp.csdn.net  
+window.location.hostname; //返回mp.csdn.net
+window.location.href; //返回整个url字符串(在浏览器中就是完整的地址栏)
+window.location.pathname; //返回/a/index.php或者/index.php  
+window.location.protocol; //返回url 的协议部分，例如： http:，ftp:，maito:等等。  
+window.location.port //url 的端口部分，如果采用默认的80端口，那么返回值并不是默认的80而是空字符  
+ 
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="jquery库"><a class="header" href="#jquery库">jQuery库</a></h1>
+<h2 id="版本"><a class="header" href="#版本">版本</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>版本</th><th>引用地址</th><th>备注</th></tr></thead><tbody>
+<tr><td>JQuery1.6.4</td><td>http://res.nie.netease.com/comm/js/jquery(mixNIE).last.js</td><td>很多旧站点使用的版本，有很多JQuery插件不支持，不推荐使用</td></tr>
+<tr><td>JQuery1.11</td><td>http://res.nie.netease.com/comm/js/jquery(mixNIE).1.11.js</td><td>比较新的版本，支持几乎目前所有JQuery插件，新产品都使用这个</td></tr>
+<tr><td>Zepto1.1.4</td><td>http://res.nie.netease.com/comm/js/zepto(mixNIE).last.js</td><td>移动端使用Zepto，没有包含animation模块，最基础的模块</td></tr>
+</tbody></table>
+</div>
+<h2 id="额外的共用方法"><a class="header" href="#额外的共用方法">额外的共用方法</a></h2>
+<h3 id="nieutilajax"><a class="header" href="#nieutilajax">nie.util.ajax</a></h3>
+<blockquote>
+<p>插入样式</p>
+</blockquote>
+<pre><code class="language-js editable">nie.util.addStyle('body{background-color:red}');
+</code></pre>
+<h3 id="cookie"><a class="header" href="#cookie">$.cookie</a></h3>
+<blockquote>
+<p>操作cookie</p>
+</blockquote>
+<pre><code class="language-js">//获取cookie
+var val = $.cookie(&quot;the_cookie&quot;);
+
+//设置cookie名为the_cookie，值为`the_value`，浏览器关闭则失效
+$.cookie('the_cookie', 'the_value');    
+
+//设置cookie，过期7天，访问路径为/，域名为163.com的根域名
+$.cookie('the_cookie', 'the_value', { expires: 7, path: '/', domain: '163.com', secure: true }); 
+
+//删除cookie
+$.cookie('the_cookie', null);
+</code></pre>
+<h3 id="browser"><a class="header" href="#browser">$.browser</a></h3>
+<blockquote>
+<p>判断浏览器类型和版本</p>
+</blockquote>
+<pre><code class="language-js">console.log($.browser);
+console.log(&quot;浏览器内核为：&quot;+$.browser.browser);
+
+//判断是否IE
+console.log($.browser.msie);
+
+//判断是否webkit
+console.log($.browser.webkit);
+
+//获取版本号
+console.log($.browser.version);
+</code></pre>
+<h3 id="include"><a class="header" href="#include">$.include</a></h3>
+<blockquote>
+<p>预加载文件，只能js、css,<strong>以src为根目录</strong></p>
+</blockquote>
+<pre><code class="language-js">//需要添加文件加载编码类型，在url中带上&quot;?charset=gb2312&quot;
+
+//加载单个文件
+$.include('js/app/data.js?charset=gb2312');
+
+//加载单个文件并回调
+$.include('js/app/data.js',()=&gt;{
+    console.log(&quot;回调11&quot;);
+});
+
+//加载多个文件并回调同一个函数
+$.include( ['css/inline.css','js/app/data.js'] ,()=&gt;{
+    console.log(&quot;回调222&quot;);
+});
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="分享组件sharev5说明"><a class="header" href="#分享组件sharev5说明">分享组件shareV5说明</a></h1>
+<blockquote>
+<p><a href="http://res.nie.netease.com/comm/js/nie/util/share/shareV5.html">参考地址</a></p>
+<p>模块：<code>nie.util.shareV5</code></p>
+<p>说明：只有域名为<code>*.163.com</code>才能分享，可在hosts文件添加配置，有的东西如分享图片share.jpg、分享文案，只有正式环境有效。测试地址和本地都不行。</p>
+</blockquote>
+<h2 id="调用示例"><a class="header" href="#调用示例">调用示例</a></h2>
+<blockquote>
+<p><strong>注意：</strong><a href="http://webpack.nie.netease.com/index.html#pack=pc_inline/basic/share.html">官网</a> 这里<code>defShow</code>写错了，最后一个应该是24
+**注意：**官网说可以将<code>shareV5</code>定义在外，实际会报错。非要外部调用，可以定义为模块属性，将整个模块暴露出去。
+**注意：**参数无内容的时候 不必填写，请勿留空，填写&quot;&quot;的时候会引发错误 ，如：url:&quot;&quot;</p>
+</blockquote>
+<pre><code class="language-js">var shareV5 = nie.require(&quot;nie.util.shareV5&quot;);
+
+var share = shareV5({
+        fat:&quot;#NIE-share&quot;,//分享组件插入父级（dom或选择器），默认：&quot;#NIE-share&quot;
+        type:1,//分享组件类别，默认:1（1：小icon，2：大icon，3：右侧滚动条分享，4：图片分享，5：文本分享，6：带文字的小icon）
+        defShow:[23,22,2,1,24],//默认展示的分享按钮 
+        title:null,//分享的标题,默认：当前页面的title
+        url:null,//分享的链接，默认：当前页面的url
+        img:null,//分享的图片，默认：null
+        content:null,//分享的正文内容，只有部分平台支持。默认：当前页面的title
+        product:&quot;产品号&quot; //选填，自适应163.com域名的产品，论坛需要指定（论坛指定规范：天下贰论坛 product=&quot;tx2_bbs&quot;）
+    });
+
+
+//修改分享的内容，字段与上面的对齐
+share.modify({
+    title : '标题',
+    img : 'http://www.163.com/icon.png'
+});
+</code></pre>
+<h2 id="分享文案"><a class="header" href="#分享文案">分享文案</a></h2>
+<blockquote>
+<p>该内容放在<code>src/inline/shareContent.html</code>中，文案内容由具体项目的编辑提供，结构如下</p>
+</blockquote>
+<pre><code class="language-html">&lt;div id=&quot;share_content&quot; style=&quot;display:none&quot;&gt;
+    &lt;div id=&quot;share_title&quot; pub-name=&quot;分享文案&quot; &gt;&lt;/div&gt;
+    &lt;div id=&quot;share_url&quot; pub-name=&quot;分享地址&quot; &gt;&lt;/div&gt;
+    &lt;div id=&quot;share_desc&quot; pub-name=&quot;分享文本&quot; &gt;&lt;/div&gt;
+   &lt;img id=&quot;share_pic&quot; data-src=&quot;#&quot; pub-name=&quot;分享图片&quot; /&gt;
+&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>并在index.html中预加载。</p>
+</blockquote>
+<pre><code class="language-html">&lt;link rel=&quot;import&quot; href=&quot;inline/shareContent.html?__inline&quot;/&gt;
+</code></pre>
+<blockquote>
+<p>以上配置完成后，可以这样写：</p>
+</blockquote>
+<pre><code class="language-js">nie.define(&quot;Index&quot;, function () {
+    const shareV5 = nie.require(&quot;nie.util.shareV5&quot;);
+    const index = {
+        init: function () {
+            this.bind();
+            this.share();
+        },
+        bind: function () {
+        },
+        // 给模块定义方法
+        share: function () {
+            let shareTitle = $(&quot;#share_title&quot;).html();
+            let shareTxt = $(&quot;#share_desc&quot;).html();
+            let sharePic = $(&quot;#share_pic&quot;).attr(&quot;data-src&quot;);
+            let share = shareV5({
+                fat: &quot;#NIE-share&quot;,
+                type: 1,
+                defShow: [23, 2, 1, 24],
+                title: shareTitle,
+                content: shareTxt,
+                img: sharePic
+            });
+        }
+    }
+    index.init();
+});
+</code></pre>
+<h2 id="按钮参数"><a class="header" href="#按钮参数">按钮参数</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>按钮</th><th>参数</th></tr></thead><tbody>
+<tr><td>微信</td><td>23</td></tr>
+<tr><td>易信</td><td>22</td></tr>
+<tr><td>新浪微博</td><td>2</td></tr>
+<tr><td>QQ空间</td><td>1</td></tr>
+<tr><td>腾讯微博</td><td>3</td></tr>
+<tr><td>人人网</td><td>8</td></tr>
+<tr><td>QQ好友</td><td>24</td></tr>
+<tr><td>豆瓣</td><td>11</td></tr>
+<tr><td>百度贴吧</td><td>14</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="图片查看器lightbox2"><a class="header" href="#图片查看器lightbox2">图片查看器lightbox2</a></h1>
+<ul>
+<li><a href="http://webpack.nie.netease.com/index.html#pack=pc_inline/basic/lightbox.html">网易lightbox旧版文档</a></li>
+<li><a href="http://webpack.nie.netease.com/index.html#pack=pc_outline/switch/lightbox2.html">网易lightbox2文档</a></li>
+<li><a href="https://lokeshdhakar.com/projects/lightbox2/">lightbox官网</a> </li>
+<li><a href="http://test.nie.163.com/test_html/nie-js/lightbox2/index.html">预览</a></li>
+<li><a href="https://git-wz.nie.netease.com/nie-js/nie-lightbox2">源码</a></li>
+</ul>
+<h2 id="使用"><a class="header" href="#使用">使用</a></h2>
+<p>1.引入：</p>
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot; src=&quot;https://nie.res.netease.com/comm/js/jquery(mixNIE).1.11.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://nie.res.netease.com/comm/js/nie/ref/lightbox2.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>2.html结构：</p>
+<blockquote>
+<p>把需要查看大图的<code>img</code>用<code>a</code>标签包着，增加<code>data-lightbox</code>属性。其中<code>href</code>属性值是大图的地址，<code>data-title</code>属性值是大图的标题，</p>
+</blockquote>
+<pre><code class="language-html">&lt;!-- 一张图片 --&gt;
+&lt;a href=&quot;http://dummyimage.com/100x100/ddd/79c&quot; data-lightbox=&quot;image-1&quot; data-title=&quot;My caption&quot;&gt;
+    &lt;img src=&quot;http://dummyimage.com/90x90/ddd/79c&quot; alt=&quot;&quot;&gt;
+&lt;/a&gt;
+
+&lt;!-- 一组图片（data-lightbox的值是相同的） --&gt;
+&lt;a href=&quot;http://dummyimage.com/1990x90/ddd/79c&quot; data-lightbox=&quot;image-2&quot; data-title=&quot;My caption&quot;&gt;
+    &lt;img src=&quot;http://dummyimage.com/90x90/ddd/79c&quot; alt=&quot;&quot;&gt;
+&lt;/a&gt;
+&lt;a href=&quot;http://dummyimage.com/990x990/ddd/79c&quot; data-lightbox=&quot;image-2&quot; data-title=&quot;My caption&quot;&gt;
+    &lt;img src=&quot;http://dummyimage.com/90x90/ddd/79c&quot; alt=&quot;&quot;&gt;
+&lt;/a&gt;
+&lt;a href=&quot;http://dummyimage.com/90x1990/ddd/79c&quot; data-lightbox=&quot;image-2&quot; data-title=&quot;My caption&quot;&gt;
+    &lt;img src=&quot;http://dummyimage.com/90x90/ddd/79c&quot; alt=&quot;&quot;&gt;
+&lt;/a&gt;
+</code></pre>
+<p>3.js设置参数：</p>
+<pre><code class="language-js">lightbox.option({
+    // 显示箭头未生效
+    alwaysShowNavOnTouchDevices:    false,          //查看大图时左右切换箭头是否一直显示，默认是鼠标经过才显示
+    albumLabel:                     &quot;图片 %1 共 %2&quot;, //查看大图时显示在标题下的图片数量信息。默认显示当前的图像数和在集合中的图像的总数。
+    disableScrolling:               false,          //查看大图时，页面是否禁止滚动
+    fadeDuration:                   300,            //显示大图淡入淡出的时间，单位是毫秒
+    fitImagesInViewport:            true,           //大图的高度是否自适应浏览器的视窗大小
+    maxWidth:                       &quot;&quot;,             //查看大图显示的最大宽度，单位是px
+    maxHeight:                      &quot;&quot;,             //查看大图显示的最大高度,单位是px
+    positionFromTop:                50,             //大图距离视窗顶部的距离，单位是px
+    resizeDuration:                 500,            //大图宽高变化的过渡时间，单位是毫秒
+    showImageNumberLabel:           true,           //是否显示大图的图片数量信息文本
+    wrapAround:                     false,          //查看大图是否可以循环切换
+})
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="官网订阅组件"><a class="header" href="#官网订阅组件">官网订阅组件</a></h1>
+<p><a href="http://webpack.nie.netease.com/index.html#pack=pc_inline/basic/indexorder.html">官方文档</a>demo异常，该组件放到后面再看</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="六马系统使用的图册组件"><a class="header" href="#六马系统使用的图册组件">六马系统使用的图册组件</a></h1>
+<blockquote>
+<p>提供给六马系统使用的图册组件，兼容PC和移动端</p>
+</blockquote>
+<ul>
+<li><a href="http://test.nie.163.com/test_html/nie-js/imageshow/">PC端demo</a></li>
+<li><a href="http://test.nie.163.com/test_html/nie-js/imageshow/m.html">手机端demo</a></li>
+<li><a href="http://webpack.nie.netease.com/index.html#pack=pc_inline/basic/imageshow.html">原文档</a></li>
+</ul>
+<h2 id="使用-1"><a class="header" href="#使用-1">使用</a></h2>
+<pre><code class="language-js">var ImageShow = nie.require(&quot;nie.util.imageshow&quot;);
+
+ImageShow.init({
+    container : &quot;#carousel&quot;, //放图册的容易ID
+    host : 'tuku.my.163.com', //推荐图册的host，如果没有，请留空
+    channel_id : '55ac5363d2742e1803904d04', //推荐图册的栏目ID，如果没有，请留空
+    name : &quot;美女图集,看到流口水&quot;, //图册名字
+    width : 600,    //图册宽度，默认为600
+    link : 'http://www.baidu.com',   //图册实际地址，如果无，请留空
+    type : &quot;pc&quot;, //图册类型，pc和m，两种，不填则自动根据当前是PC还是移动选择
+    cur : 0, //图册初始化切换到第几张图，默认值为0，下标从0开始，超出图册长度则默认为0
+    callback : function(page,type){ //翻页回调
+        //当前页码，从0开始
+        console.log(page);
+        //翻页模式，1为普通，2为全屏
+        console.log(type);
+    },
+    //图册数组
+    data : [
+        {
+            thumb : &quot;http://c.cotton.netease.com/buckets/4EUyqb/files/ADJcjJLuiyR&quot;, //缩略图
+            big : &quot;http://c.cotton.netease.com/buckets/4EUyqb/files/AZKWbqtYAxg&quot;, //大图
+            desc : &quot;怒海龙吟：彼岸花ぃ晨曦&quot; //图描述
+        },
+        {
+            thumb : &quot;http://c.cotton.netease.com/buckets/4EUyqb/files/FlXh3ca1WCh&quot;,
+            big : &quot;http://c.cotton.netease.com/buckets/4EUyqb/files/4O8hKQOtFLM&quot;,
+            desc : &quot;怒海龙吟：彼岸花ぃ晨曦2&quot;
+        }
+    ],
+    //以下参数仅限移动端使用
+    hide_footer : true, //不显示全屏下的底部说明
+    pre_btn : &quot;.pre&quot;, //上一页按钮的选择器，样式需要自己控制
+    next_btn : &quot;.next&quot;, //下一页按钮的选择器，样式需要自己控制
+    full_btn : &quot;.full&quot; //显示全屏的按钮的选择器，样式需要自己控制
+});
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="复制文本组件"><a class="header" href="#复制文本组件">复制文本组件</a></h1>
+<p>用法如下：</p>
+<blockquote>
+<p><a href="http://webpack.nie.netease.com/index.html#pack=pc_inline/basic/copy.html">官网</a>第二个<code>copy</code>多打了个t
+<strong>注意：</strong><code>text</code>属性值，用jQuery取错值（如<code>input.text()</code>）不会报错，且剪切板不会替换为空<code>&quot;&quot;</code>，却能触发回调。经测试，能隐式转false的值都如此。</p>
+</blockquote>
+<pre><code class="language-js">var copy = nie.require(&quot;nie.util.copytext&quot;);
+
+copy({
+    btn : &quot;.copy&quot;,            // 点击按钮selector
+    text : $(&quot;.text&quot;).val(), // 需要复制的文本
+    callback : function (){   // 复制成功后，回调函数
+        alert(&quot;复制成功！&quot;);
+    }
+});
+</code></pre>
+<blockquote>
+<p>**注意：**以下用法无效，不知用法不对还是插件bug。</p>
+</blockquote>
+<p>或者：</p>
+<ol>
+<li>用jQuery 初始化点击按钮</li>
+<li>参数1：需要复制的文本</li>
+<li>参数2：复制成功后，回调函数</li>
+</ol>
+<pre><code class="language-js">var copy = nie.require(&quot;nie.util.copytext&quot;);
+
+$(&quot;.copy&quot;).NIEcopyText( $(&quot;.text&quot;).text(), function (){
+    alert(&quot;复制成功！&quot;);
+});
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="弹层的使用普通的弹窗flash视频"><a class="header" href="#弹层的使用普通的弹窗flash视频">弹层的使用：普通的弹窗、flash、视频</a></h1>
+<blockquote>
+<p><a href="http://webpack.nie.netease.com/index.html#pack=pc_inline/basic/pop.html">原文档</a></p>
+</blockquote>
+<blockquote>
+<p>有时间自己修改下: 2023-07-20 17:43:03 tzj
+- 没有模态窗样式
+- a标签给个缩进样式直接看不见了
+- 无脑<code>z-index:99999</code>也不好
+- 太冗杂，只保留一个模态窗常用的即可</p>
+</blockquote>
+<h2 id="html结构"><a class="header" href="#html结构">html结构</a></h2>
+<pre><code class="language-html">&lt;!--普通弹层--&gt;
+&lt;div class=&quot;dTc&quot; id=&quot;shareTc&quot; style=&quot;display:none&quot;&gt;
+    &lt;h3 class=&quot;hide&quot;&gt;分享赢龙马，送贴心防雾霭口罩&lt;/h3&gt;
+    &lt;a class=&quot;aCloseQ&quot; href=&quot;javascript:void(0)&quot;&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;!--flash弹层--&gt;
+&lt;div id=&quot;flashtc1&quot; class=&quot;dTc&quot; style=&quot;display:none&quot;&gt;
+    &lt;a href=&quot;javascript:void(0)&quot; class=&quot;aCloseQ&quot;&gt;&lt;/a&gt;
+    &lt;div id=&quot;flash-wrap&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;!--视频弹层--&gt;
+&lt;div class=&quot;dTc videoBox&quot; id=&quot;videoShow&quot; style=&quot;display: none&quot;&gt;
+    &lt;a class=&quot;aCloseQ&quot; title=&quot;关闭&quot;&gt;关闭&lt;/a&gt;
+    &lt;div class=&quot;dialogCon&quot;&gt;
+        &lt;div class=&quot;dVideoBox&quot;&gt;&lt;div id=&quot;dVideo&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="css"><a class="header" href="#css">css</a></h2>
+<pre><code class="language-css">/*弹层蒙版*/
+.dTc{position:absolute;zoom:1;top:200px;z-index:999999}
+.aCloseQ{display:block;position:absolute;right:21px;top:27px;width:20px;height:20px;cursor:pointer;text-indent: -9999px}
+#NIE-overlayer{display:none;position:absolute;width:100%;height:100%;background:#000;filter:alpha(opacity=80);opacity:.8;top:0;left:0;z-index:99}
+/*视频弹层*/
+.videoBox {background: #000;}
+.videoBox .dialogCon {overflow: hidden;padding: 5px;}
+.videoBox .dVideoBox {border: 1px solid #999;padding: 4px;background: #666;}
+.videoBox .aCloseQ {position: absolute;width: 57px;height: 57px;display: block;right: -57px;top: 0;cursor: pointer;overflow: hidden;text-indent: -9999px;background: url(http://res.nie.netease.com/tx3/gw/13v1/images/close.jpg) no-repeat 0 0;}
+</code></pre>
+<h2 id="js"><a class="header" href="#js">js</a></h2>
+<pre><code class="language-js">$(function(){
+    //-----------以下为普通弹层示例
+    $('#pop1').click(function(){
+        openD({
+            id: '#shareTc',//弹出的弹层id
+            type : '1'//1为普通弹层，2为flash弹层，3为视频弹层
+        })
+    })
+    //-----------以下为flash弹层示例
+    $('#pop2').click(function(){
+        openD({
+            id: '#flashtc1',//弹出的弹层id
+            type : '2',//1为普通弹层，2为flash弹层，3为视频弹层
+            width: '960',//弹层宽度
+            height: '600',//弹层高度
+            flashurl:'http://res.nie.netease.com/xy2/qt/14/0109_biwu/pop.swf',//弹层所需的flash地址
+            wmode: 'opaque'
+        })
+    })
+    //-----------以下为视频弹层示例
+    $('#pop3').click(function(){
+        openD({
+            id: '#videoShow',//弹出的弹层id
+            type : '3',//1为普通弹层，2为flash弹层，3为视频弹层
+            width: '800',//弹层宽度
+            height: '450',//弹层高度
+            videourl:'http://v.nie.netease.com/tx3/2013/1231/longwu.f4v'//弹层所需的flash地址
+        })
+    })
+
+})
+//flash自己内部调用的函数
+var closeMe = function(){
+    $(&quot;#NIE-overlayer&quot;).hide();
+    $('.aCloseQ').show();
+    $('#flashtc1').hide();
+}
+</code></pre>
+<h2 id="封装方法"><a class="header" href="#封装方法">封装方法</a></h2>
+<pre><code class="language-js">//弹层
+//--这个函数是将三种基本弹层合在一体的，所以代码会比较长一些，可以根据需求自己独立出来相对应的弹层代码
+function openD(opt) {
+//只针对一个tab con
+    var settings = {
+        id: '',
+        type: '',//1为普通弹层，2为flash弹层，3为视频弹层
+        width: '',//2和3需要使用
+        height: '',//2和3需要使用
+        flashurl: '',//2需要使用，flash地址
+        videourl: '',//3需要使用，视频地址
+        wmode: '',//2和3可能需要使用
+        startImg: ''//3需要使用，视频截图
+    }
+    opt = opt || {};
+    settings = $.extend(settings, opt);
+
+    var popbg = $(&quot;#NIE-overlayer&quot;),
+        popid = $(settings.id),
+        type = settings.type,
+        w = parseInt(settings.width),
+        h = parseInt(settings.height),
+        vimg = settings.startImg,
+        furl = settings.flashurl,
+        vurl = settings.videourl,
+        wmode = settings.wmode,
+        dh = $(document).height(),
+        wh = $(window).height(),
+        ww = $(window).width(),
+        st = $(window).scrollTop(),
+        sl = $(window).scrollLeft();
+// 蒙版弹出
+    popbg.css({&quot;height&quot;: dh}).show();
+
+// 弹层弹出
+    function posPop(idname) {
+        idname.height() &gt; wh ? idname.fadeIn().css({
+            'top': st,
+            'left': (ww - idname.width()) / 2 + sl
+        }) : idname.fadeIn().css({
+            'top': (wh - idname.outerHeight()) / 2 + st,
+            'left': (ww - idname.outerWidth()) / 2 + sl
+        });
+    }
+
+//  弹层关闭
+    $('.aCloseQ').click(function () {
+        $(this).parent().fadeOut();
+        $(&quot;#NIE-overlayer&quot;).hide();
+    });
+//判断弹层类别
+    switch (type) {
+        case '1':
+            posPop(popid);
+            break;
+        case '2':
+            $('#flash-wrap').html('');
+            nie.use([&quot;util.swfobject&quot;], function () {
+                $('#flash-wrap').flash({
+                    swf: furl,
+                    width: w,
+                    height: h,
+                    allowScriptAccess: 'always',
+                    wmode: wmode
+                });
+            })
+            var obj = $('#flashtc1');
+            obj.css({'width': w, 'height': h});
+            $('.aCloseQ').hide();//flash本身有做关闭按钮
+            posPop(popid);
+
+            break;
+        case '3':
+            $('#dVideo').html('').css({'height': h + 'px', 'width': w + 'px'});
+            popid.css({'height': h + 22 + 'px', 'width': w + 22 + 'px'});
+            posPop(popid);
+            nie.use(['nie.util.video'], function () {
+                nie.util.video($('#dVideo'), {
+                    movieUrl: vurl,
+                    mp4_movieUrl: vurl.replace(/\.(flv|f4v)/, '.mp4'),
+                    width: w,
+                    height: h,
+                    startImg: vimg,
+                    bufferTime: 5,
+                    loopTimes: 0,
+                    wmode: &quot;opaque&quot;,
+                    volume: 0.8,
+                    autoPlay: true
+                });
+            })
+            break;
+        default :
+            break;
+    }
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="视频组件videov2"><a class="header" href="#视频组件videov2">视频组件videoV2</a></h1>
+<ul>
+<li><a href="http://webpack.nie.netease.com/index.html#pack=pc_inline/basic/video.html">视频组件旧版</a></li>
+<li><a href="http://webpack.nie.netease.com/index.html#pack=pc_inline/basic/video-new.html">视频组件新版原文档</a></li>
+</ul>
+<blockquote>
+<p><strong>注意</strong> 使用该组件，全部不在html绑定<code>onclick</code>，因为会发错，比如这里的：停止、销毁、改变路径，报错：<code>not a function</code>。统一在js里添加事件监听</p>
+</blockquote>
+<ul>
+<li>停止<code>video.stop()</code>: 无法再次播放</li>
+<li>销毁<code>video.destroy()</code>: 销毁节点</li>
+<li>改源<code>video.change()</code>: 改变路径后不会自动播放，即便设置了<code>autoPlay</code>，需要手动调用<code>video.play()</code>。</li>
+</ul>
+<pre><code class="language-js">var videoModule = nie.require(&quot;nie.util.videoV2&quot;);
+
+var video = videoModule({
+    fat : &quot;#video&quot;,//放视频的容器
+    width:&quot;600&quot;,//视频宽度
+    height:&quot;400&quot;,//视频高度
+    //wmode:&quot;direct&quot;,//flash wmode值,默认direct
+    movieUrl:&quot;&quot;,//标清视频地址
+    HDmovieUrl : &quot;&quot;,//高清视频地址
+    SHDmovieUrl : &quot;&quot;,//超清视频地址
+    vtype : &quot;&quot;,//默认选用哪种清晰度，分别有d,hd,shd，默认不填则会采用校验网速然后自动匹配
+    //autoPlay:false,//是否自动播放，默认false
+    //startImg:null,//开始图片地址，默认false
+    //loopTimes:0,//循环播放次数，默认0
+    //maskImg:null,//整个flash顶部遮罩图片地址，默认null
+    //bufferTime:5//缓冲时间（秒）,默认5
+});
+
+video.change(movieURL);//改变视频地址
+video.pause();//暂停视频
+video.stop();//停止视频
+video.play();//播放视频
+video.destroy();//清空并销毁视频
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="音频组件audio"><a class="header" href="#音频组件audio">音频组件audio</a></h1>
+<blockquote>
+<p>电脑音频驱动好像有问题，先搁置该组件</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="服务器时间组件bjtime"><a class="header" href="#服务器时间组件bjtime">服务器时间组件bjTime</a></h1>
+<pre><code class="language-js">var Time = nie.require(&quot;util.bjTime&quot;);
+
+Time.bjTime.getDate(function(time){
+    console.log(time);
+    //time.dateObj 时间对象
+    //time.year 年份
+    //time.month 月份
+    //time.date 日
+    //time.day 星期几的索引值
+    //time.cnWeek 中文的星期几
+    //time.monthTotalDay 本月总日数
+    //time.firstDayCnWeek 本月1号 是星期几
+    //time.weekNum 今天是本月第几周
+});
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="diy插件"><a class="header" href="#diy插件">DIY插件</a></h1>
+<h2 id="1-模态窗"><a class="header" href="#1-模态窗">1. 模态窗</a></h2>
+<h3 id="封装"><a class="header" href="#封装">封装</a></h3>
+<p>通用css样式</p>
+<pre><code class="language-css">._modal{display:none;width:100%;height:100%;background-color:rgba(0,0,0,0.8);position:fixed;top:0;left:0;z-index:9999;line-height:0;}._modal&gt;.content{height:5rem;width:5rem;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}._modal&gt;.content&gt;.close{position:absolute;top:-1em;right:0;line-height:1em;}._modal&gt;.content&gt;.detail{line-height:1em;height:100%;width:100%;}
+</code></pre>
+<p>通用less写法</p>
+<pre><code class="language-less">._modal{display:none;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.8);position: fixed;top: 0;left: 0;z-index: 9999;line-height: 0; .content{height: 5rem;width: 5rem;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);} .close{position: absolute;top: -1em;right: 0;line-height: 1em;} .detail{line-height:1em;height: 100%;width: 100%;} }
+</code></pre>
+<p>封装js</p>
+<pre><code class="language-js">class Modal {
+    box;
+    el;
+
+    constructor({el, width = &quot;5rem&quot;, height = &quot;5rem&quot;, callback}) {
+        let box = $(el);
+        box.addClass(&quot;_modal&quot;);
+        box.html(`&lt;div class=&quot;content&quot;&gt;&lt;a href=&quot;javascript:void(0)&quot; title=&quot;关闭&quot; class=&quot;close&quot;&gt;关闭&lt;/a&gt;&lt;div class=&quot;detail&quot;&gt;&lt;/div&gt;&lt;/div&gt;`);
+        $(el + &quot; .close&quot;).click(() =&gt; {
+            box.hide();
+        })
+        this.box = box;
+        this.el = el;
+        let content = $(el + &quot;&gt;.content&quot;);
+        content.css(&quot;width&quot;, this.getPx(width));
+        content.css(&quot;height&quot;, this.getPx(height));
+        // 再多的样式就在css里写吧
+        if (typeof callback === &quot;function&quot;) callback(this);
+        return this;
+    }
+
+    html(dom) {
+        $(this.el + &quot;&gt;.content&gt;.detail&quot;).html(dom);
+        return this;
+    }
+
+    show() {
+        this.box.show();
+        return this;
+    }
+
+    hide() {
+        this.box.hide();
+        return this;
+    }
+
+    getPx(val) {
+        if (!val) val = &quot;0px&quot;
+        if (typeof val === &quot;number&quot;) val += &quot;px&quot;;
+        if (typeof val === &quot;string&quot;) {
+            if (!isNaN(Number(val))) val += &quot;px&quot;;
+        }
+        return val;
+    }
+}
+</code></pre>
+<h3 id="使用-2"><a class="header" href="#使用-2">使用</a></h3>
+<p>html</p>
+<pre><code class="language-html">&lt;div id=&quot;modal&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>js</p>
+<pre><code class="language-js">let modal = new Modal({
+    el: &quot;#modal&quot;,
+    width: &quot;6rem&quot;,
+    height: &quot;7rem&quot;,
+    callback(that) {
+        console.log(that);
+    }
+})
+
+modal.html(1234).show();
+</code></pre>
+<p>css</p>
+<pre><code class="language-css">._modal&gt;.content{
+    border: 1px solid red;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><blockquote>
+<p>该文介绍了mdbook的基本使用，常见问题以及自定义修改。</p>
+</blockquote>
+<h2 id="参考内容"><a class="header" href="#参考内容">参考内容</a></h2>
+<p><a href="https://rust-lang.github.io/mdBook">官网</a></p>
+<p><a href="https://mdbook-guide.niqin.com/zh-cn/index.html">中文文档</a></p>
+<p><a href="https://github.com/rust-lang/mdBook/">github地址</a></p>
+<p><a href="http://lihuaxi.xjx100.cn/news/1247329.html">参考文章</a></p>
+<blockquote>
+<p>中文文档有缺失，以原文档为准。</p>
+<p>感觉不好用，想用gitbook，但是node报错。</p>
+</blockquote>
+<h2 id="安装"><a class="header" href="#安装">安装</a></h2>
+<ul>
+<li><a href="https://github.com/rust-lang/mdBook/releases">github下载地址</a></li>
+<li>网络不好可以下载别人分享的exe：<a href="https://pan.baidu.com/s/1nd1343_nmaZBu_ogcWaN1Q?pwd=isjq">百度网盘文件</a></li>
+<li>方便点可以配置环境变量path</li>
+<li>dos正常运行但idea运行报错：path添加<code>C:\Windows\System32;</code>，</li>
+<li>或者：tools工具-&gt;terminal终端-&gt;shell path(shell路径)-&gt;<code>C:\Windows\system32\cmd.exe</code>-&gt;restart</li>
+<li>初始化
+<pre><code class="language-shell">  mdboot init
+</code></pre>
+</li>
+<li>启动服务
+<pre><code class="language-shell"># 默认浏览器打开网址
+start http://localhost:3000
+# 启动服务 默认 localhost:3000
+mdbook serve 
+</code></pre>
+<pre><code class="language-shell">mdbook serve -n 192.168.0.111 -p 3000 -o
+</code></pre>
+</li>
+</ul>
+<h2 id="配置文件"><a class="header" href="#配置文件">配置文件</a></h2>
+<pre><code class="language-toml">[book]
+authors = [&quot;tzj&quot;]
+language = &quot;zh-cn&quot;
+multilingual = false
+description = &quot;2023-07-28 11:09:13 tzj&quot;
+src = &quot;src&quot; # 资源目录：默认src
+title = &quot;标题&quot;
+
+[Build]
+# build-dir = &quot;book/&quot; # 渲染地址
+create-missing = true # 目录文件不存在时是否生成文件 mo默认 true
+
+[output.html.playground]
+editable = true
+# 全局设置代码可编辑，若单个代码段，加上`,editable`，如：```js,editable    ```
+
+[output.html]
+# 以src为根目录，引入以下内容 （报错，尚未解决）
+# additional-css = [&quot;css/custom.css&quot;]
+#additional-js = [&quot;js\\custom.js&quot;]
+
+</code></pre>
+<h2 id="自定义修改"><a class="header" href="#自定义修改">自定义修改</a></h2>
+<h3 id="修改模板"><a class="header" href="#修改模板">修改模板</a></h3>
+<blockquote>
+<p>mdbook提供了修改模板的方法：在根目录下创建目录<code>theme</code>，选择性写入文件，有则自动覆盖。</p>
+</blockquote>
+<div class="table-wrapper"><table><thead><tr><th>以下是您可以覆盖的文件:</th><th>描述</th></tr></thead><tbody>
+<tr><td><strong>index.hbs</strong></td><td>hbs 模板.</td></tr>
+<tr><td>*<strong>head.hbs*</strong></td><td>HTML <code>head</code> 部分.</td></tr>
+<tr><td>*<strong>header.hbs*</strong></td><td>每个页面的头部</td></tr>
+<tr><td>- *<strong>css/*</strong></td><td>样式文件</td></tr>
+<tr><td>- *<strong>css/chrome.css*</strong></td><td>UI 元素</td></tr>
+<tr><td>- *<strong>css/general.css*</strong></td><td>基础样式</td></tr>
+<tr><td>- *<strong>css/print.css*</strong></td><td>打印输出的样式</td></tr>
+<tr><td>- *<strong>css/variables.css*</strong></td><td>css 变量</td></tr>
+<tr><td><strong>book.js</strong></td><td>主要用于添加客户端功能,如隐藏/取消隐藏侧边栏,更改主题,…</td></tr>
+<tr><td><strong>highlight.js</strong></td><td>是用于突出显示代码片段的 JavaScript,您不需要修改它.</td></tr>
+<tr><td><strong>highlight.css</strong></td><td>是用于代码突出显示的主题</td></tr>
+<tr><td><strong>favicon.svg</strong></td><td>将使用的 favicon</td></tr>
+</tbody></table>
+</div>
+<h3 id="修改源码"><a class="header" href="#修改源码">修改源码</a></h3>
+<ul>
+<li><a href="https://github.com/rust-lang/mdBook">下载源码</a></li>
+<li>找到文件：<code>mdBook-0.4.32\src\theme\searcher\searcher.js</code>的<code>globalKeyHandler()</code>方法</li>
+<li>源码忽略了ctrl、shift，加上了不知有没有冲突，故而把原来的监听S注释掉，首行改为：
+<pre><code class="language-js">if (e.altKey || e.metaKey || e.shiftKey || e.target.type === 'textarea' || e.target.type === 'text') return;
+
+if (!hasFocus() &amp;&amp; e.ctrlKey &amp;&amp; e.keyCode === 70) {
+  e.preventDefault();
+  showSearch(true);
+  window.scrollTo(0, 0);
+  searchbar.select();
+}
+if (e.ctrlKey) return;
+</code></pre>
+</li>
+<li>可以再自行完善下，让焦点在搜索框时，ctrl+f 触发关闭方法，不然会弹出浏览器自带搜索</li>
+<li>根目录创建目录<code>theme/js</code>,复制上述文件<code>searcher.js</code>到<code>theme/js/searcher.js</code></li>
+<li>配置该文件：
+<pre><code class="language-toml">[output.html]
+additional-js = [&quot;theme/js/searcher.js&quot;]
+</code></pre>
+</li>
+<li>从github下载源码的<code>index.hbs</code>到<code>theme</code>里</li>
+<li>修改<code>index.hbs</code>：删/注掉该行：<code>&lt;script src=&quot;{{ path_to_root }}searcher.js&quot;&gt;&lt;/script&gt;</code></li>
+<li>把title、placeholder等，从英文改为中文，将提示中的<code>S</code>改为<code>Ctrl + F</code></li>
+</ul>
+<h3 id="中文"><a class="header" href="#中文">中文</a></h3>
+<ul>
+<li>将上述<code>index.hbs</code>中的切换侧边栏、切换主题、搜索、打印等英文描述title改成中文</li>
+<li>同理把<code>book.js</code>复制到<code>theme</code>下，搜索：<code>Copied</code>、<code>Copy to clipboard</code>替换为中文</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="blog"><a class="header" href="#blog">blog</a></h1>
+<blockquote>
+<p>一直以来想弄个blog存些笔记，最近看到了gitbook、mdbook，也没整明白</p>
+<p>看网上说一般用hexo，我也试试。国内肯定优先gitee吧，有空再同步到github上</p>
+<p>hexo基于node，索性加上vue+vite+element。。。好像有点多，走一步看一步吧。</p>
+</blockquote>
+<h2 id="参考文档"><a class="header" href="#参考文档">参考文档</a></h2>
+<ul>
+<li><a href="https://hexo.io/zh-cn/">Hexo官方文档zh-cn</a></li>
+<li><a href="http://t.csdn.cn/D9Vam">github pages 用法详解</a></li>
+</ul>
+<h2 id="gitee-pages"><a class="header" href="#gitee-pages">Gitee pages</a></h2>
+<blockquote>
+<p>设置gitee pages进去才发现，上次就卡在实名认证照片不清晰。。。</p>
+</blockquote>
+<ul>
+<li><a href="https://gitee.com/">gitee官网</a>注册账号、创建仓库、选择<code>服务</code>-&gt;<code>Gitee Pages</code>即可。</li>
+</ul>
+<h2 id="github-page"><a class="header" href="#github-page">github page</a></h2>
+<blockquote>
+<p>算了，先用github page吧</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com">github官网</a>注册、仓库、代码等基础操作就不赘述了。</li>
+<li>选择：settings -&gt; pages -&gt; 忘了，以前配置过</li>
+<li>[我的blog](https://bcm tang.github.io/blog/)</li>
+</ul>
+<h2 id="hexo-安装"><a class="header" href="#hexo-安装">Hexo 安装</a></h2>
+<ol>
+<li>npm下载
+<pre><code class="language-shell">cnpm install -g hexo-cli
+</code></pre>
+</li>
+<li>初始化
+<pre><code class="language-shell">hexo init blog #blog为自定义项目名
+</code></pre>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><blockquote>
+<p>该文介绍了mdbook的基本使用，常见问题以及自定义修改。</p>
+</blockquote>
+<h2 id="参考内容-1"><a class="header" href="#参考内容-1">参考内容</a></h2>
+<p><a href="https://rust-lang.github.io/mdBook">官网</a></p>
+<p><a href="https://mdbook-guide.niqin.com/zh-cn/index.html">中文文档</a></p>
+<p><a href="https://github.com/rust-lang/mdBook/">github地址</a></p>
+<p><a href="http://lihuaxi.xjx100.cn/news/1247329.html">参考文章</a></p>
+<blockquote>
+<p>中文文档有缺失，以原文档为准。</p>
+<p>感觉不好用，想用gitbook，但是node报错。</p>
+</blockquote>
+<h2 id="安装-1"><a class="header" href="#安装-1">安装</a></h2>
+<ul>
+<li><a href="https://github.com/rust-lang/mdBook/releases">github下载地址</a></li>
+<li>网络不好可以下载别人分享的exe：<a href="https://pan.baidu.com/s/1nd1343_nmaZBu_ogcWaN1Q?pwd=isjq">百度网盘文件</a></li>
+<li>方便点可以配置环境变量path</li>
+<li>dos正常运行但idea运行报错：path添加<code>C:\Windows\System32;</code>，</li>
+<li>或者：tools工具-&gt;terminal终端-&gt;shell path(shell路径)-&gt;<code>C:\Windows\system32\cmd.exe</code>-&gt;restart</li>
+<li>初始化
+<pre><code class="language-shell">  mdboot init
+</code></pre>
+</li>
+<li>启动服务
+<pre><code class="language-shell"># 默认浏览器打开网址
+start http://localhost:3000
+# 启动服务 默认 localhost:3000
+mdbook serve 
+</code></pre>
+<pre><code class="language-shell">mdbook serve -n 192.168.0.111 -p 3000 -o
+</code></pre>
+</li>
+</ul>
+<h2 id="配置文件-1"><a class="header" href="#配置文件-1">配置文件</a></h2>
+<pre><code class="language-toml">[book]
+authors = [&quot;tzj&quot;]
+language = &quot;zh-cn&quot;
+multilingual = false
+description = &quot;2023-07-28 11:09:13 tzj&quot;
+src = &quot;src&quot; # 资源目录：默认src
+title = &quot;标题&quot;
+
+[Build]
+# build-dir = &quot;book/&quot; # 渲染地址
+create-missing = true # 目录文件不存在时是否生成文件 mo默认 true
+
+[output.html.playground]
+editable = true
+# 全局设置代码可编辑，若单个代码段，加上`,editable`，如：```js,editable    ```
+
+[output.html]
+# 以src为根目录，引入以下内容 （报错，尚未解决）
+# additional-css = [&quot;css/custom.css&quot;]
+#additional-js = [&quot;js\\custom.js&quot;]
+
+</code></pre>
+<h2 id="自定义修改-1"><a class="header" href="#自定义修改-1">自定义修改</a></h2>
+<h3 id="修改模板-1"><a class="header" href="#修改模板-1">修改模板</a></h3>
+<blockquote>
+<p>mdbook提供了修改模板的方法：在根目录下创建目录<code>theme</code>，选择性写入文件，有则自动覆盖。</p>
+</blockquote>
+<div class="table-wrapper"><table><thead><tr><th>以下是您可以覆盖的文件:</th><th>描述</th></tr></thead><tbody>
+<tr><td><strong>index.hbs</strong></td><td>hbs 模板.</td></tr>
+<tr><td>*<strong>head.hbs*</strong></td><td>HTML <code>head</code> 部分.</td></tr>
+<tr><td>*<strong>header.hbs*</strong></td><td>每个页面的头部</td></tr>
+<tr><td>- *<strong>css/*</strong></td><td>样式文件</td></tr>
+<tr><td>- *<strong>css/chrome.css*</strong></td><td>UI 元素</td></tr>
+<tr><td>- *<strong>css/general.css*</strong></td><td>基础样式</td></tr>
+<tr><td>- *<strong>css/print.css*</strong></td><td>打印输出的样式</td></tr>
+<tr><td>- *<strong>css/variables.css*</strong></td><td>css 变量</td></tr>
+<tr><td><strong>book.js</strong></td><td>主要用于添加客户端功能,如隐藏/取消隐藏侧边栏,更改主题,…</td></tr>
+<tr><td><strong>highlight.js</strong></td><td>是用于突出显示代码片段的 JavaScript,您不需要修改它.</td></tr>
+<tr><td><strong>highlight.css</strong></td><td>是用于代码突出显示的主题</td></tr>
+<tr><td><strong>favicon.svg</strong></td><td>将使用的 favicon</td></tr>
+</tbody></table>
+</div>
+<h3 id="修改源码-1"><a class="header" href="#修改源码-1">修改源码</a></h3>
+<ul>
+<li><a href="https://github.com/rust-lang/mdBook">下载源码</a></li>
+<li>找到文件：<code>mdBook-0.4.32\src\theme\searcher\searcher.js</code>的<code>globalKeyHandler()</code>方法</li>
+<li>源码忽略了ctrl、shift，加上了不知有没有冲突，故而把原来的监听S注释掉，首行改为：
+<pre><code class="language-js">if (e.altKey || e.metaKey || e.shiftKey || e.target.type === 'textarea' || e.target.type === 'text') return;
+
+if (!hasFocus() &amp;&amp; e.ctrlKey &amp;&amp; e.keyCode === 70) {
+  e.preventDefault();
+  showSearch(true);
+  window.scrollTo(0, 0);
+  searchbar.select();
+}
+if (e.ctrlKey) return;
+</code></pre>
+</li>
+<li>可以再自行完善下，让焦点在搜索框时，ctrl+f 触发关闭方法，不然会弹出浏览器自带搜索</li>
+<li>根目录创建目录<code>theme/js</code>,复制上述文件<code>searcher.js</code>到<code>theme/js/searcher.js</code></li>
+<li>配置该文件：
+<pre><code class="language-toml">[output.html]
+additional-js = [&quot;theme/js/searcher.js&quot;]
+</code></pre>
+</li>
+<li>从github下载源码的<code>index.hbs</code>到<code>theme</code>里</li>
+<li>修改<code>index.hbs</code>：删/注掉该行：<code>&lt;script src=&quot;{{ path_to_root }}searcher.js&quot;&gt;&lt;/script&gt;</code></li>
+<li>把title、placeholder等，从英文改为中文，将提示中的<code>S</code>改为<code>Ctrl + F</code></li>
+</ul>
+<h3 id="中文-1"><a class="header" href="#中文-1">中文</a></h3>
+<ul>
+<li>将上述<code>index.hbs</code>中的切换侧边栏、切换主题、搜索、打印等英文描述title改成中文</li>
+<li>同理把<code>book.js</code>复制到<code>theme</code>下，搜索：<code>Copied</code>、<code>Copy to clipboard</code>替换为中文</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <!---<script src="searcher.js"></script>-->
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="theme/js/searcher.js"></script>
+        <script src="theme/js/nav.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
