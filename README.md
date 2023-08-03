@@ -6,6 +6,9 @@
 > 
 > 更想用gitbook，hexo，日后再说
 
+## 访问地址
+> [访问地址](https://bcmtang.github.io/blog/book/)，github pages配置默认地址index.html没弄好
+
 ## 使用
 - 安装：[官网](https://rust-lang.github.io/mdBook)或者：[百度网盘文件](https://pan.baidu.com/s/1nd1343_nmaZBu_ogcWaN1Q?pwd=isjq)
 - 放在该目录或配环境变量
