@@ -1,6 +1,7 @@
 # Summary
 
 [首页](./index.md)
+[项目注意事项](./note.md)
 
 ---
 
@@ -112,17 +113,29 @@
 # DIY自制
 
 - [css样式]()
+  - [栅格布局grid](./991.md)
+  - [浏览器适配](./992.md)
+  - [滚动条](./993.md)
 - [js封装]()
+  - [不规则div点击事件](./899.md) 
   - [屏幕适配rem](./996.md)
 - [html结构]()
 - [plugin第三方插件]()
   - [画布工具html2canvas](./997.md)
   - [文字生成二维码QRCode](./995.md)
+  - [字体包压缩fontmin](./994.md)
+  - [node](./897.md)
 - [utils工具使用]()
+  - [feg](./896.md)
+- [网络相关network]()
+  - [文件上传file upload](./898.md)
 - [other其他未分类]()
-    - [diy](./999.md)
-    - [mdbook](./998.md)
-    - [blog](blog.md)
+  - [兼容性处理](./990.md)
+  - [diy](./999.md)
+  - [mdbook](./998.md)
+  - [blog](blog.md)
+  - [文档记录](./895.md)
+
 
 ---
 
