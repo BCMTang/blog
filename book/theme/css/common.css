@@ -1,0 +1,8 @@
+#content a > img {
+    height: 2em;
+    margin: 0 0.5em;
+}
+
+#content a:has(img){
+    line-height: 2em;
+}

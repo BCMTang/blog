@@ -30,6 +30,7 @@
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="theme/css/nav.css">
+        <link rel="stylesheet" href="theme/css/common.css">
 
     </head>
     <body>
@@ -171,8 +172,62 @@
 <ul>
 <li><a href="https://nodejs.org/zh-cn">nodejs</a></li>
 <li><a href="https://nodejs.org/zh-cn/download/releases">node历史版本</a></li>
+<li><a href="https://github.com/coreybutler/nvm-windows/releases">NVM<img src="img%2Ficon-github.png" alt="icon-github.png" /></a></li>
+<li><a href="https://nvm.uihtm.com/"><img src="https://nvm.uihtm.com/images/logo.png" alt="NVM" /></a></li>
 </ul>
-<h2 id="安装"><a class="header" href="#安装">安装</a></h2>
+<h2 id="一nvm"><a class="header" href="#一nvm">一、nvm</a></h2>
+<blockquote>
+<p>来回手动切换版本，很不方便很不保险，使用node版本管理工具：NVM。</p>
+</blockquote>
+<ul>
+<li>卸载node，删除相关文件夹</li>
+<li>去官网下载安装</li>
+<li>安装检测：<code>nvm -v</code>、<code>node -v</code></li>
+</ul>
+<h3 id="常用指令"><a class="header" href="#常用指令">常用指令</a></h3>
+<pre><code>nvm arch：显示node是运行在32位还是64位。
+nvm install &lt;version&gt; [arch] ：安装node， version是特定版本也可以是最新稳定版本latest。可选参数arch指定安装32位还是64位版本，默认是系统位数。可以添加--insecure绕过远程服务器的SSL。
+nvm list [available] ：显示已安装的列表。可选参数available，显示可安装的所有版本。list可简化为ls。
+nvm on ：开启node.js版本管理。
+nvm off ：关闭node.js版本管理。
+nvm proxy [url] ：设置下载代理。不加可选参数url，显示当前代理。将url设置为none则移除代理。
+nvm node_mirror [url] ：设置node镜像。默认是https://nodejs.org/dist/。如果不写url，则使用默认url。设置后可至安装目录settings.txt文件查看，也可直接在该文件操作。
+nvm npm_mirror [url] ：设置npm镜像。https://github.com/npm/cli/archive/。如果不写url，则使用默认url。设置后可至安装目录settings.txt文件查看，也可直接在该文件操作。
+nvm uninstall &lt;version&gt; ：卸载指定版本node。
+nvm use [version] [arch] ：使用制定版本node。可指定32/64位。
+nvm root [path] ：设置存储不同版本node的目录。如果未设置，默认使用当前目录。
+nvm version ：显示nvm版本。version可简化为v。
+</code></pre>
+<h3 id="nvm切换国内镜像"><a class="header" href="#nvm切换国内镜像">nvm切换国内镜像</a></h3>
+<blockquote>
+<p>如果下载node过慢或者安装失败，请更换国内镜像源,</p>
+<p>在 nvm 的安装路径下，找到 （默认地址：<code>C:\Users\Admin\AppData\Roaming\nvm\settings.txt</code>）settings.txt，</p>
+<p>设置node_mirro与npm_mirror为国内镜像地址。下载就飞快了~~</p>
+</blockquote>
+<pre><code class="language-text">root: D:\nvm
+path: D:\nodejs
+nvm npm_mirror https://npmmirror.com/mirrors/npm/
+nvm node_mirror https://npmmirror.com/mirrors/node/
+</code></pre>
+<p>或者：</p>
+<pre><code class="language-text">node_mirror: https://npm.taobao.org/mirrors/node/
+npm_mirror: https://npm.taobao.org/mirrors/npm/
+</code></pre>
+<p>指令切换：</p>
+<pre><code class="language-shell">nvm npm_mirror https://npmmirror.com/mirrors/npm/
+nvm node_mirror https://npmmirror.com/mirrors/node/
+</code></pre>
+<h3 id="指令demo"><a class="header" href="#指令demo">指令demo</a></h3>
+<pre><code class="language-shell">nvm list
+</code></pre>
+<pre><code class="language-shell">nvm list available
+</code></pre>
+<pre><code class="language-shell">nvm install 16.17.0
+</code></pre>
+<pre><code class="language-shell">nvm use 14.21.3
+</code></pre>
+<h2 id="二手动操作"><a class="header" href="#二手动操作">二、手动操作</a></h2>
+<h3 id="安装"><a class="header" href="#安装">安装</a></h3>
 <ul>
 <li>官网选择版本安装</li>
 <li>低版本手动配置环境变量</li>
@@ -184,14 +239,14 @@
 </blockquote>
 <pre><code class="language-shell">npm i -g [依赖名]
 </code></pre>
-<h2 id="卸载"><a class="header" href="#卸载">卸载</a></h2>
+<h3 id="卸载"><a class="header" href="#卸载">卸载</a></h3>
 <ul>
 <li>电脑系统里卸载<code>Node.js</code></li>
 <li>删除文件夹：<code>C:\Users\Admin\AppData\Roaming\npm</code>、<code>C:\Users\Admin\AppData\Roaming\npm-cache</code></li>
 </ul>
-<h2 id="常用指令"><a class="header" href="#常用指令">常用指令</a></h2>
-<h2 id="常用依赖包"><a class="header" href="#常用依赖包">常用依赖包</a></h2>
-<h2 id="镜像配置"><a class="header" href="#镜像配置">镜像配置</a></h2>
+<h2 id="三node常用指令"><a class="header" href="#三node常用指令">三、node常用指令</a></h2>
+<h2 id="四常用依赖包"><a class="header" href="#四常用依赖包">四、常用依赖包</a></h2>
+<h2 id="五镜像配置"><a class="header" href="#五镜像配置">五、镜像配置</a></h2>
 
                     </main>
 
