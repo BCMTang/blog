@@ -276,6 +276,20 @@ additional-js = [&quot;theme/js/searcher.js&quot;]
 <li>将上述<code>index.hbs</code>中的切换侧边栏、切换主题、搜索、打印等英文描述title改成中文</li>
 <li>同理把<code>book.js</code>复制到<code>theme</code>下，搜索：<code>Copied</code>、<code>Copy to clipboard</code>替换为中文</li>
 </ul>
+<h3 id="设置a标签"><a class="header" href="#设置a标签">设置a标签</a></h3>
+<blockquote>
+<p>如果全部a标签设置<code>href=&quot;_blank&quot;</code>，直接在<code>index.hbs</code>或外链js并配置<code>additional-js</code>。写入一下逻辑：</p>
+</blockquote>
+<pre><code class="language-js">  let content = document.querySelector(&quot;div#content&quot;); // 获取div#content元素
+  let links = content.getElementsByTagName(&quot;a&quot;); // 获取div#content下的所有a标签
+
+  for (let i = 0; i &lt; links.length; i++) {
+      links[i].setAttribute(&quot;target&quot;, target); // 设置target属性为&quot;_blank&quot;
+  }
+</code></pre>
+<blockquote>
+<p>只改变markdown生成的a标签，如该格式：<code>[标题](http://127.0.0.1)</code>，而手写的a标签，则不修改，如<code>&lt;a href=&quot;http://127.0.0.1&quot;&gt;标题&lt;/a&gt;</code></p>
+</blockquote>
 
                     </main>
 
@@ -341,6 +355,7 @@ additional-js = [&quot;theme/js/searcher.js&quot;]
         <!-- Custom JS scripts -->
         <script src="theme/js/searcher.js"></script>
         <script src="theme/js/nav.js"></script>
+        <script src="theme/js/markdown.js"></script>
 
 
     </div>
