@@ -170,10 +170,15 @@
                     <main>
                         <h1 id="node"><a class="header" href="#node">node</a></h1>
 <ul>
-<li><a href="https://nodejs.org/zh-cn">nodejs</a></li>
+<li><a href="https://nodejs.org/zh-cn">nodejs<img src="https://nodejs.org/static/images/logo.svg" alt="nodejs" /></a></li>
 <li><a href="https://nodejs.org/zh-cn/download/releases">node历史版本</a></li>
 <li><a href="https://github.com/coreybutler/nvm-windows/releases">NVM<img src="img%2Ficon-github.png" alt="icon-github.png" /></a></li>
+<li><a href="https://github.com/npm/">npm<img src="img%2Ficon-github.png" alt="icon-github.png" /></a></li>
 <li><a href="https://nvm.uihtm.com/"><img src="https://nvm.uihtm.com/images/logo.png" alt="NVM" /></a></li>
+<li><a href="https://www.npmjs.com/">npmjs</a></li>
+<li><a href="https://npmmirror.com/">淘宝镜像cnpm</a></li>
+<li><a href="http://npm.taobao.org/mirrors/npm/">淘宝镜像下载npm</a></li>
+<li><a href="http://t.csdn.cn/ZAVRF">nvm（node版本管理工具）下载及安装教程以及npm安装</a></li>
 </ul>
 <h2 id="一nvm"><a class="header" href="#一nvm">一、nvm</a></h2>
 <blockquote>
@@ -183,8 +188,9 @@
 <li>卸载node，删除相关文件夹</li>
 <li>去官网下载安装</li>
 <li>安装检测：<code>nvm -v</code>、<code>node -v</code></li>
+<li>若版本管理里没有想要的，在nvm安装目录（<code>C:\Users\Admin\AppData\Roaming\nvm</code>）下新建目录，去官网找到指定版本装到此处</li>
 </ul>
-<h3 id="常用指令"><a class="header" href="#常用指令">常用指令</a></h3>
+<h3 id="1-常用指令"><a class="header" href="#1-常用指令">1. 常用指令</a></h3>
 <pre><code>nvm arch：显示node是运行在32位还是64位。
 nvm install &lt;version&gt; [arch] ：安装node， version是特定版本也可以是最新稳定版本latest。可选参数arch指定安装32位还是64位版本，默认是系统位数。可以添加--insecure绕过远程服务器的SSL。
 nvm list [available] ：显示已安装的列表。可选参数available，显示可安装的所有版本。list可简化为ls。
@@ -198,7 +204,7 @@ nvm use [version] [arch] ：使用制定版本node。可指定32/64位。
 nvm root [path] ：设置存储不同版本node的目录。如果未设置，默认使用当前目录。
 nvm version ：显示nvm版本。version可简化为v。
 </code></pre>
-<h3 id="nvm切换国内镜像"><a class="header" href="#nvm切换国内镜像">nvm切换国内镜像</a></h3>
+<h3 id="2-nvm切换国内镜像"><a class="header" href="#2-nvm切换国内镜像">2. nvm切换国内镜像</a></h3>
 <blockquote>
 <p>如果下载node过慢或者安装失败，请更换国内镜像源,</p>
 <p>在 nvm 的安装路径下，找到 （默认地址：<code>C:\Users\Admin\AppData\Roaming\nvm\settings.txt</code>）settings.txt，</p>
@@ -217,7 +223,7 @@ npm_mirror: https://npm.taobao.org/mirrors/npm/
 <pre><code class="language-shell">nvm npm_mirror https://npmmirror.com/mirrors/npm/
 nvm node_mirror https://npmmirror.com/mirrors/node/
 </code></pre>
-<h3 id="指令demo"><a class="header" href="#指令demo">指令demo</a></h3>
+<h3 id="3-指令demo"><a class="header" href="#3-指令demo">3. 指令demo</a></h3>
 <pre><code class="language-shell">nvm list
 </code></pre>
 <pre><code class="language-shell">nvm list available
@@ -226,6 +232,16 @@ nvm node_mirror https://npmmirror.com/mirrors/node/
 </code></pre>
 <pre><code class="language-shell">nvm use 14.21.3
 </code></pre>
+<h3 id="4-低版本安装npm"><a class="header" href="#4-低版本安装npm">4. 低版本安装npm</a></h3>
+<p>查看node版本</p>
+<ul>
+<li>去<a href="https://nodejs.org/zh-cn/download/releases/">这里→</a>看对应npm版本</li>
+<li>去<a href="http://npm.taobao.org/mirrors/npm/">淘宝→</a>找到对应版本并下载</li>
+<li>放到nvm目录下指定版本里的<code>node_moudle</code>下，如：<code>C:\Users\Admin\AppData\Roaming\nvm\v14.21.3\node_modules</code>
+并将<code>cli-6.14.18</code>改名为<code>npm</code></li>
+<li>然后将npm里的bin下的<code>npm</code>、<code>npm.cmd</code>放到node版本目录下，如<code>C:\Users\Admin\AppData\Roaming\nvm\v14.21.3</code>，要用npx的话也同理</li>
+<li><code>npm -v</code></li>
+</ul>
 <h2 id="二手动操作"><a class="header" href="#二手动操作">二、手动操作</a></h2>
 <h3 id="安装"><a class="header" href="#安装">安装</a></h3>
 <ul>

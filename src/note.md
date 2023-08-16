@@ -5,4 +5,4 @@
 - `nie`的组件初始化定义都在`nie.define()`里，否则可能报错。
 - 文件名不能大写
 - js使用img路径时，用`_uri()`，否则上线后混淆处理后，找不到文件
-- 
+- 所有跳转官网的链接后缀一定要带`/index.html`，如`https://game.163.com/index.html`而不是`https://game.163.com/`

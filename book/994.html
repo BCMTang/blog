@@ -172,6 +172,8 @@
 <ul>
 <li><a href="https://note.youdao.com/ynoteshare/index.html?id=cb1558aef6616eb7f69279b71681631a&amp;type=note&amp;_time=1690798657543">自动提取字体工具</a></li>
 <li><a href="http://ecomfe.github.io/fontmin">fontmin官网</a></li>
+<li><a href="https://github.com/ecomfe/fontmin">fontmin<img src="img%2Ficon-github.png" alt="icon-github.png" /></a></li>
+<li><a href="https://github.com/Jack-Sparrow/charactor-scanner">扫描本地文件提取文本<img src="img%2Ficon-github.png" alt="icon-github.png" /></a></li>
 </ul>
 <blockquote>
 <p>要求不能占用太多服务器内存，而部分项目对字体有要求，可进行字体包压缩</p>
@@ -181,11 +183,16 @@
 </code></pre>
 <pre><code class="language-js">// npm install --save fontmin
 
-var Fontmin = require('fontmin');
+var Fontmin = require('fontmin');   
 
 var srcPath = './fonts/source_han_serif_cn_heavy.ttf'; // 字体源文件
 var destPath = './myFonts';    // 输出路径
-var text = &quot;参赛规则和奖励我要参赛作品参选本期活动作品要求参赛方式投票方式头像框设计说明评选细则其他规则说明稿回到顶部ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;
+var text = `
+这里填入要生成的文字
+0123456789
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+`
 
 // 初始化
 var fontmin = new Fontmin()
