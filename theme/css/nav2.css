@@ -5,3 +5,8 @@ ol.chapter .chapter-item:not(.affix){
 ol.chapter .nav_toggle{
     color: black;
 }
+
+.chapter>li {
+    color: var(--sidebar-fg);
+    cursor: pointer;
+}
