@@ -1880,6 +1880,12 @@ function uploadImage() {
     nodes;
     files;
 
+    /**
+     * 自定义简单封装图片上传
+     * 待补充：可设置图片数目、单个文件大小
+     * @param selector{string} 节点选择器
+     * @param callback{function} input[name=file]的change()回调
+     * */
     constructor(selector, callback) {
         this.nodes = document.querySelectorAll(selector);
         this.files = new Array(this.nodes.length);
