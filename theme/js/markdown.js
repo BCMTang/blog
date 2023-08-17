@@ -1,6 +1,6 @@
 // markdown相关逻辑
 window.addEventListener("load",function (){
-    skip();
+    // skip();
 })
 
 // 设置markdown里的a标签

@@ -1732,108 +1732,147 @@ feg server stop
 <div style="break-before: page; page-break-before: always;"></div><h1 id="文件上传file-upload"><a class="header" href="#文件上传file-upload">文件上传file upload</a></h1>
 <h2 id="原生方法"><a class="header" href="#原生方法">原生方法</a></h2>
 <blockquote>
-<p>原生<code>&lt;input&gt;</code>显然不美观，一般都是自定义样式，再去触发其点击事件.若放到点击box之内，则要阻止冒泡</p>
+<p>如下为GPT生成的一个模板</p>
 </blockquote>
-<pre><code class="language-html">
-&lt;div class=&quot;uploadBox&quot;&gt;
-    &lt;i class=&quot;add&quot;&gt;&lt;/i&gt;
-    &lt;img src=&quot;&quot; alt=&quot;图片&quot; class=&quot;hide fileImg&quot;&gt;
-    &lt;input type=&quot;file&quot; accept=&quot;image/*&quot; class=&quot;hide&quot;/&gt;
-&lt;/div&gt;
-</code></pre>
-<pre><code class="language-css">.uploadBox {
-    width: 100px;
-    height: 100px;
-    border: 1px solid red;
-    position: relative;
-}
-
-.hide {
-    display: none;
-}
-
-.add {
-    background-image: url(./img/icon_add.png);
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-</code></pre>
-<pre><code class="language-js">// 阻止冒泡
-$(&quot;.uploadBox input&quot;).click(event =&gt; {
-    event.stopPropagation()
-})
-
-// 点击
-$(&quot;.uploadBox&quot;).each(function (i, item) {
-    $(this).click(() =&gt; {
-        $(this).find(&quot;input&quot;).eq(0).click();
-    })
-})
-</code></pre>
+<p>示例：</p>
 <hr />
-<p><strong>示例：</strong>(详情打开控制台)（报错，有空完善下）</p>
-<div id="uploadBox" onclick="f1()">
-    <i id="add"></i>
-    <img src="" alt="图片" class="hide" id="fileImg">
-    <input type="file" accept="image/*" class="hide" id="fileInput" onchange="f2(this)"/>
-</div>
 <style>
-#uploadBox {
-    width: 100px;
-    height: 100px;
-    border: 1px solid red;
-    position: relative;
-    cursor:pointer;
-}
+    #box {
+        width: 200px;
+        height: 200px;
+        border: 2px dashed #ccc;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
 
-.hide {
-    display: none;
-}
+    #box div {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 200px;
+        font-size: 18px;
+        color: #888;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
-#add {
-    width: 37px;
-    height: 37px;
-    background-image: url(./img/icon_add.png);
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+    #box img {
+        display: none;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #fileUpload {
+        display: none;
+    }
 </style>
 <script>
-console.log(1234);
-document.getElementById("fileInput").addEventListener("click",e=>{
-    e.stopPropagation();
-});
-function f1(){
-    document.getElementById("fileInput").click();
-}
-function f2(e){
-console.log(e);
-    let preview = document.querySelector('#fileImg');
-    let file = e.target.files;
-console.log(file);
-return;
-    if(!file) return;
-    let reader = new FileReader();
-    reader.onload = function(event) {
-        preview.src = event.target.result;
-    };
-    reader.readAsDataURL(file);
+    let selectedFile;
 
-    document.getElementById("add").classList.add("hide");
-    document.getElementById("fileImg").classList.remove("hide");
+    function handleFileSelect(event) {
+        const files = event.target.files;
+        if (files && files.length > 0) {
+            selectedFile = files[0];
+            const imageUrl = URL.createObjectURL(selectedFile);
+            document.getElementById('preview').src = imageUrl;
+            document.getElementById('preview').style.display = 'block';
+            document.getElementById('placeholder').style.display = 'none';
+        }
+    }
 
-    let formData = new FormData();
-    formData.append('upFile', file, file.name);
-    console.log(formData)
-}
+    function replaceImage() {
+        document.getElementById('fileUpload').click();
+    }
+
+    function uploadImage() {
+        if (selectedFile) {
+            // 执行图片上传操作
+            // 可以通过selectedFile访问文件信息
+            console.log(selectedFile);
+        } else {
+            alert('请选择图片');
+        }
+    }
 </script>
+<div id="box" onclick="replaceImage()">
+    <div id="placeholder">点击选择图片</div>
+    <img id="preview" alt="" src="">
+    <input type="file" id="fileUpload" onchange="handleFileSelect(event)">
+</div>
+<button onclick="uploadImage()">上传图片</button>
 <hr />
+<pre><code class="language-html">
+&lt;div id=&quot;box&quot; onclick=&quot;replaceImage()&quot;&gt;
+    &lt;div id=&quot;placeholder&quot;&gt;点击选择图片&lt;/div&gt;
+    &lt;img id=&quot;preview&quot; alt=&quot;&quot; src=&quot;&quot;&gt;
+    &lt;input type=&quot;file&quot; id=&quot;fileUpload&quot; onchange=&quot;handleFileSelect(event)&quot;&gt;
+&lt;/div&gt;
+&lt;button onclick=&quot;uploadImage()&quot;&gt;上传图片&lt;/button&gt;
+</code></pre>
+<pre><code class="language-css">#box {
+    width: 200px;
+    height: 200px;
+    border: 2px dashed #ccc;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#box div {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 200px;
+    font-size: 18px;
+    color: #888;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#box img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#fileUpload {
+    display: none;
+}
+</code></pre>
+<pre><code class="language-js">let selectedFile;
+
+function handleFileSelect() {
+    const files = event.target.files;
+    if (files &amp;&amp; files.length &gt; 0) {
+        selectedFile = files[0];
+        const imageUrl = URL.createObjectURL(selectedFile);
+        document.getElementById('preview').src = imageUrl;
+        document.getElementById('preview').style.display = 'block';
+        document.getElementById('placeholder').style.display = 'none';
+    }
+}
+
+function replaceImage() {
+    document.getElementById('fileUpload').click();
+}
+
+function uploadImage() {
+    if (selectedFile) {
+        // 执行图片上传操作
+        // 可以通过selectedFile访问文件信息
+        console.log(selectedFile);
+    } else {
+        alert('请选择图片');
+    }
+}
+</code></pre>
 <ul>
 <li>原生js</li>
 <li>跨域</li>
