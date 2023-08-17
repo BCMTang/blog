@@ -129,9 +129,9 @@ window.search = window.search || {};
         if (count == 1) {
             return count + " search result for '" + searchterm + "':";
         } else if (count == 0) {
-            return "No search results for '" + searchterm + "'.";
+            return "没有搜索到【" + searchterm + "】。";
         } else {
-            return count + " search results for '" + searchterm + "':";
+            return count + "个【"+searchterm+"】" +"的搜索结果：";
         }
     }
     
