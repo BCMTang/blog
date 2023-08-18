@@ -1883,8 +1883,8 @@ function uploadImage() {
     /**
      * 自定义简单封装图片上传
      * 待补充：可设置图片数目、单个文件大小
-     * @param selector{string} 节点选择器
-     * @param callback{function} input[name=file]的change()回调
+     * @param {string}selector 节点选择器
+     * @param {?function}[callback] 文件输入框change()回调
      * */
     constructor(selector, callback) {
         this.nodes = document.querySelectorAll(selector);
@@ -1997,9 +1997,28 @@ let upload = new UploadBox(".upload", function (files) {
     console.log(files);
 });
 </script>
+<h2 id="跨域上传"><a class="header" href="#跨域上传">跨域上传</a></h2>
+<blockquote>
+<p>jquery.ajax()跨域上传图片，需要设置<code>processData</code>、<code>contentType</code>为false，让jQuery不进行拦截，且后端配置，允许通过接口</p>
+</blockquote>
+<pre><code class="language-js">let formData = new FormData();
+formData.append(&quot;fpfile&quot;, file);
+formData.append(&quot;Authorization&quot;, token);//接口需要的其它参数     
+$.ajax({
+    url: &quot;https://test.com&quot;,
+    type: &quot;POST&quot;,
+    data: formData,
+    processData: false,
+    contentType: false,
+    success(res){
+        console.log(res);
+    },
+    error(res){
+        console.log(res);
+    }
+})
+</code></pre>
 <ul>
-<li>原生js</li>
-<li>跨域</li>
 <li>组件库</li>
 <li>文件流</li>
 <li>接口</li>
