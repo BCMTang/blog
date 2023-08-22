@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <!-- 2023-08-02 09:16:28 tzj -->
+        <meta charset="UTF-8">
+        <title>图片生成字体 - 网易游戏组件库文档</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="2023-07-28 11:09:13 tzj 过一遍组件库">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/css/nav2.css">
+        <link rel="stylesheet" href="theme/css/common.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">首页</a></li><li class="chapter-item expanded affix "><a href="note.html">项目注意事项</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">PC内部组件库</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基础类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="001.html"><strong aria-hidden="true">1.1.</strong> jQuery库</a></li><li class="chapter-item expanded "><a href="002.html"><strong aria-hidden="true">1.2.</strong> 分享组件shareV5</a></li><li class="chapter-item expanded "><a href="003.html"><strong aria-hidden="true">1.3.</strong> 图片查看器lightbox2</a></li><li class="chapter-item expanded "><a href="004.html"><strong aria-hidden="true">1.4.</strong> 官网订阅组件</a></li><li class="chapter-item expanded "><a href="005.html"><strong aria-hidden="true">1.5.</strong> 图册组件imageshow</a></li><li class="chapter-item expanded "><a href="006.html"><strong aria-hidden="true">1.6.</strong> 复制文本copytext</a></li><li class="chapter-item expanded "><a href="007.html"><strong aria-hidden="true">1.7.</strong> 弹层</a></li><li class="chapter-item expanded "><a href="008.html"><strong aria-hidden="true">1.8.</strong> 视频组件videoV2</a></li><li class="chapter-item expanded "><a href="009.html"><strong aria-hidden="true">1.9.</strong> 音频组件audio</a></li><li class="chapter-item expanded "><a href="010.html"><strong aria-hidden="true">1.10.</strong> 服务器时间组件bjTime</a></li><li class="chapter-item expanded "><a href="011.html"><strong aria-hidden="true">1.11.</strong> 插入flash</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.12.</strong> 翻页组件pager</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.13.</strong> 共用alert组件PopDialog</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.14.</strong> 表单验证组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.15.</strong> 序列组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.16.</strong> 3D相册轮播组件[旧版]</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.17.</strong> 3D相册轮播组件[V2版]</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.18.</strong> 二维码组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.19.</strong> 手游官网下载组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.20.</strong> 弹幕组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.21.</strong> 搜索模块</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.22.</strong> 滚动模块</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.23.</strong> 职业模块[废弃]</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.24.</strong> 文章内页</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.25.</strong> 营销点代码</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.26.</strong> 点击统计代码/监测代码</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.27.</strong> 内容工具组件</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 高级类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 快速注册</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> 登录组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.3.</strong> 投票系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.4.</strong> 评论系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.5.</strong> 抽奖效果组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.6.</strong> 图片延迟加载</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.7.</strong> 倒计时</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.8.</strong> 领取礼包码</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.9.</strong> 新站点申请章鱼[加白名单]</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.10.</strong> 预约接口手游</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.11.</strong> 手游os预约版下载地址</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.12.</strong> 新游预约组件旧版</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 系统类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> PM系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> PM系统-源文件及配置</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> 新闻发布系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.</strong> 新闻发布系统-索引页面配置发布</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> 新闻发布系统-More页面配置发布</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> 新闻发布系统-消息内容页面配置发布</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.</strong> 投票系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.</strong> 百科系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.9.</strong> 图库系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.10.</strong> 评论系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.11.</strong> 点赞系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.12.</strong> 视频专区</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 其他类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> 微博话题墙</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">移动内部组件</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 基础类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> 分享组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> 分享组件2</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.3.</strong> 加载组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.4.</strong> 摇一摇组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.5.</strong> 键启动组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.6.</strong> 分享监控组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.7.</strong> 视频H5组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.8.</strong> 手游渠道下载指引弹层</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">双端通用组件</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 基础类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> 图片上传组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> 图片裁剪组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> 3D地图组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.4.</strong> 图文Metro流组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.5.</strong> 新版新游预约组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.6.</strong> 网页加载与错误监控统计</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.7.</strong> 反馈组件</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">外部组件列表</li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 外部组件列表</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">7.1.</strong> 汇总</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">FIS插件列表</li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.</strong> 编译插件</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> parser-html-ejs</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.2.</strong> postprocessor-include</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.3.</strong> postprocessor-replace</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.4.</strong> preprocessor-resload</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 打包插件</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">9.1.</strong> deploy-local-supply</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.2.</strong> postpackager-html-encode</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.3.</strong> postpackager-supply</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.4.</strong> postpackager-tolist</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.5.</strong> postpackager-trueload</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.6.</strong> postpackager-usemin</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.7.</strong> postpackager-jpg-towebp</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">webpack插件列表</li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> loader</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">10.1.</strong> resload</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.2.</strong> html-supply</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.3.</strong> html-include</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">DIY自制</li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> css样式</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="991.html"><strong aria-hidden="true">11.1.</strong> 栅格布局grid</a></li><li class="chapter-item expanded "><a href="992.html"><strong aria-hidden="true">11.2.</strong> 浏览器适配</a></li><li class="chapter-item expanded "><a href="993.html"><strong aria-hidden="true">11.3.</strong> 滚动条</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> js封装</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="899.html"><strong aria-hidden="true">12.1.</strong> 不规则div点击事件</a></li><li class="chapter-item expanded "><a href="996.html"><strong aria-hidden="true">12.2.</strong> 屏幕适配rem</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> html结构</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="892.html"><strong aria-hidden="true">13.1.</strong> 局部刷新</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> plugin第三方插件</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="997.html"><strong aria-hidden="true">14.1.</strong> 画布工具html2canvas</a></li><li class="chapter-item expanded "><a href="995.html"><strong aria-hidden="true">14.2.</strong> 文字生成二维码QRCode</a></li><li class="chapter-item expanded "><a href="994.html"><strong aria-hidden="true">14.3.</strong> 字体包压缩fontmin</a></li><li class="chapter-item expanded "><a href="897.html"><strong aria-hidden="true">14.4.</strong> node</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> utils工具使用</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="896.html"><strong aria-hidden="true">15.1.</strong> feg</a></li><li class="chapter-item expanded "><a href="891.html"><strong aria-hidden="true">15.2.</strong> rime小狼毫</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.</strong> 网络相关network</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="898.html"><strong aria-hidden="true">16.1.</strong> 文件上传file upload</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">17.</strong> other其他未分类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="890.html" class="active"><strong aria-hidden="true">17.1.</strong> 图片生成字体</a></li><li class="chapter-item expanded "><a href="893.html"><strong aria-hidden="true">17.2.</strong> 随笔</a></li><li class="chapter-item expanded "><a href="990.html"><strong aria-hidden="true">17.3.</strong> 兼容性处理</a></li><li class="chapter-item expanded "><a href="999.html"><strong aria-hidden="true">17.4.</strong> diy</a></li><li class="chapter-item expanded "><a href="998.html"><strong aria-hidden="true">17.5.</strong> mdbook</a></li><li class="chapter-item expanded "><a href="blog.html"><strong aria-hidden="true">17.6.</strong> blog</a></li><li class="chapter-item expanded "><a href="895.html"><strong aria-hidden="true">17.7.</strong> 文档记录</a></li><li class="chapter-item expanded "><a href="894.html"><strong aria-hidden="true">17.8.</strong> 浏览器尺寸</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="998.html">说明</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="侧边栏显/隐" aria-label="侧边栏显/隐" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="修改主题" aria-label="修改主题" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="搜索(快捷键：Ctrl+F)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">网易游戏组件库文档</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="打印该文档" aria-label="打印该文档">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="全局搜索：Ctrl+F" aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="图片生成字体"><a class="header" href="#图片生成字体">图片生成字体</a></h1>
+<ul>
+<li><a href="http://t.csdn.cn/RXRIa">使用FontCreator打造属于自己的字体</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/484402491">通过Unicode输入字符</a></li>
+</ul>
+<h2 id="1-fontcreator"><a class="header" href="#1-fontcreator">1. FontCreator</a></h2>
+<ul>
+<li>下载安装FontCreator，打开已安装的字体包。（要是有能力新建一个就不需要看这个了）。系统字体包默认位置：<code>C:\Windows\Fonts</code></li>
+<li>如果是替换已有文字，比如<code>汤</code>，找到它的unicode为<code>\u6C64</code>，在该软件写法为<code>$6C64</code>，搜索【<code>Ctrl</code> + <code>F</code>】、右键编辑、全选【<code>Ctrl</code> + <code>A</code>】、删除【<code>Delete</code>】，叉掉再右键导入图像。</li>
+<li>如果是新建一个字，随便找个不常用字（比如生僻字<code>$9FDF</code>鿟）进行上一步操作，右键导入图片。</li>
+<li>注意：设置不常见字符code后，若没有安装该字体包，可能显示乱码<code>ꪪ</code>。</li>
+<li>另存为，自己取个名字以作区分。安装到电脑，我先不装，用html演示。</li>
+<li>在html中引入字体包，输入<code>汤</code>字，效果如下：</li>
+<li><code>&lt;p&gt;中文文本汤随便输入一些文字&lt;/p&gt;</code></li>
+<li><img src="img/890_text.jpg" alt="890-text.jpg" /></li>
+<li>显然位置有偏差，就在字体中找到该字，右键编辑，全选，拖移调整。</li>
+</ul>
+<h2 id="2-输入法打出"><a class="header" href="#2-输入法打出">2. 输入法打出</a></h2>
+<ul>
+<li>微软拼音可以通过unicode直接设置，看<a href="https://zhuanlan.zhihu.com/p/484402491">通过Unicode输入字符</a></li>
+<li>搜狗输入法，更多设置、属性设置、高级、自定义短语、添加新短语，比如我这里缩写设为<code>t</code></li>
+<li>把上面的unicode拿过来，把<code>$</code>换成<code>\u</code>，在浏览器中随便打开个页面按F12，选择控制台（console），用英文引号括起来，比如<code>&quot;\u9FDF&quot;</code>，别用中文引号<code>“\u9FDF”</code>，下一行就会出现<code>ꪪ</code>或<code>鿟</code>，不要下面的单引号，把乱码复制到输入法的自定义短语里</li>
+<li>或者不用引号也行，能复制就可以。我是前端，习惯用浏览器，要是有别的工具能实现也一样。</li>
+<li><img src="img/890_code.jpg" alt="890_code.jpg" /></li>
+<li>注意，显示都是<code>ꪪ</code>，但它们不一定是同一个字符</li>
+<li>下次用搜狗输入法，打<code>t</code>它就出现了</li>
+<li>其他未安装该字体包的设备，比如其他电脑手机打印机，显示出来的还是<code>ꪪ</code>或<code>鿟</code>。</li>
+</ul>
+<h2 id="3-常用字符unicode范围16进制"><a class="header" href="#3-常用字符unicode范围16进制">3. 常用字符unicode范围（16进制）</a></h2>
+<ul>
+<li>基本拉丁文字符（Basic Latin）：U+0000至U+007F</li>
+<li>拉丁文-1补充字符（Latin-1 Supplement）：U+0080至U+00FF</li>
+<li>拉丁文扩展-A字符（Latin Extended-A）：U+0100至U+017F</li>
+<li>拉丁文扩展-B字符（Latin Extended-B）：U+0180至U+024F</li>
+<li>摩斯科尼字符（Miscellaneous）：U+0250至U+02AF</li>
+<li>拉丁文扩展增补字符（Latin Extended Additional）：U+1E00至U+1EFF</li>
+<li>一般标点符号（General Punctuation）：U+2000至U+206F</li>
+<li>上标及下标字符（Superscripts and Subscripts）：U+2070至U+209F</li>
+<li>货币符号（Currency Symbols）：U+20A0至U+20CF</li>
+<li>字母变音符号（Combining Diacritical Marks）：U+0300至U+036F</li>
+<li>数学运算符号（Mathematical Operators）：U+2200至U+22FF</li>
+<li>中日韩统一表意文字（CJK Unified Ideographs）：U+4E00至U+9FFF</li>
+<li>中日韩统一表意文字扩展A（CJK Unified Ideographs Extension A）：U+3400至U+4DBF</li>
+<li>中日韩统一表意文字扩展B（CJK Unified Ideographs Extension B）：U+20000至U+2A6DF</li>
+<li>中日韩统一表意文字扩展C（CJK Unified Ideographs Extension C）：U+2A700至U+2B73F</li>
+<li>中日韩统一表意文字扩展D（CJK Unified Ideographs Extension D）：U+2B740至U+2B81F</li>
+<li>中日韩统一表意文字扩展E（CJK Unified Ideographs Extension E）：U+2B820至U+2CEAF</li>
+<li>中日韩统一表意文字扩展F（CJK Unified Ideographs Extension F）：U+2CEB0至U+2EBEF</li>
+<li>中日韩统一表意文字扩展G（CJK Unified Ideographs Extension G）：U+30000至U+3134F</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="898.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="893.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="898.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="893.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <!---<script src="searcher2.js"></script>-->
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="theme/js/searcher2.js"></script>
+        <script src="theme/js/nav2.js"></script>
+        <script src="theme/js/markdown.js"></script>
+
+
+    </div>
+    </body>
+</html>
