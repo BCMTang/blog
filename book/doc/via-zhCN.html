@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)https://ashleyscirra.github.io/via.js/ -->
+<html lang="zh-CN" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Via.js：在 Web Worker 中使用 DOM（反之亦然）|  Via.js</title>
+<meta name="generator" content="Jekyll v3.9.0">
+<meta property="og:title" content="Via.js: use the DOM in a Web Worker (and vice versa)">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Write JS code that runs in a different context. E.g. use the DOM in a Web Worker.">
+<meta property="og:description" content="Write JS code that runs in a different context. E.g. use the DOM in a Web Worker.">
+<link rel="canonical" href="https://ashleyscirra.github.io/via.js/">
+<meta property="og:url" content="https://ashleyscirra.github.io/via.js/">
+<meta property="og:site_name" content="via.js">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Via.js: use the DOM in a Web Worker (and vice versa)">
+<script type="application/ld+json">
+{"headline":"Via.js: use the DOM in a Web Worker (and vice versa)","description":"Write JS code that runs in a different context. E.g. use the DOM in a Web Worker.","url":"https://ashleyscirra.github.io/via.js/","@type":"WebSite","name":"via.js","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <style class="anchorjs"></style><link rel="stylesheet" href="./Via-zhCN_files/style.css">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/via.js/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  <link type="text/css" rel="stylesheet" charset="UTF-8" href="./Via-zhCN_files/m=el_main_css"></head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="https://ashleyscirra.github.io/via.js/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Via.js</font></font></a></h1>
+      
+
+      <h1 id="viajs-use-the-dom-in-a-web-worker-and-vice-versa"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Via.js：在 Web Worker 中使用 DOM（反之亦然）</font></font></h1>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Via.js 允许您编写在不同上下文中运行的 JavaScript 代码。</font><font style="vertical-align: inherit;">其两个主要用途是：</font></font></p>
+
+<ul>
+  <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 Web Worker 中使用 DOM</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：在 Worker 中编写 DOM 调用并让它们在主线程上运行</font></font></li>
+  <li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编写可方便地在 DOM 上调用 Web Worker 代码的代码</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：编写在 Web Worker 上自动发生的调用，有助于防止大量 JavaScript 调用卡住主线程。</font></font><a href="https://github.com/GoogleChromeLabs/comlink"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这在本质上与ComLink</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类似</font><font style="vertical-align: inherit;">，尽管 Via.js 的做法有所不同。</font></font></li>
+</ul>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意 Via.js 需要</font></font><a href="https://github.com/tc39/proposal-weakrefs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">WeakRefs</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来清理内存并避免内存泄漏。</font></font><a href="https://www.chromestatus.com/feature/5892186633666560"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chrome 84+</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">、</font></font><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox/Releases/79"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Firefox 79+</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><a href="https://developer.apple.com/documentation/safari-release-notes/safari-14_1-release-notes"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Safari 14.1+</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持此功能</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">（如果不支持 WeakRefs，Via.js 将继续工作，但将不可避免地泄漏内存。）</font></font></p>
+
+<h1 id="examples"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">例子</font></font></h1>
+<h2 id="using-the-dom-in-a-web-worker"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 Web Worker 中使用 DOM</font></font><a class="anchorjs-link " href="https://ashleyscirra.github.io/via.js/#using-the-dom-in-a-web-worker" aria-label="锚" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Web Workers 有一些 API，但大多数 Web API 仍然只能在主线程中使用。</font><font style="vertical-align: inherit;">当您需要访问</font></font><code class="language-plaintext highlighter-rouge">document</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CSS 样式、输入事件（例如</font></font><code class="language-plaintext highlighter-rouge">"click"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">视频、WebRTC、Web 音频等）等功能时，这使得使用 Worker 变得更加困难。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以下是使用 Via.js</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 Web Worker 中工作的</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一些 DOM 调用：</font></font></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nb">document</span> <span class="o">=</span> <span class="nx">via</span><span class="p">.</span><span class="nb">document</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">button</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">button</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">button</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Click me</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">button</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fontWeight</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">bold</span><span class="dl">"</span><span class="p">;</span>
+<span class="nx">button</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span>
+<span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">[Worker] Click event</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">button</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><font style="vertical-align: inherit;"></font><code class="language-plaintext highlighter-rouge">via.document</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">唯一的区别是使用（</font></font><code class="language-plaintext highlighter-rouge">via</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代表远程全局对象）</font><font style="vertical-align: inherit;">访问文档对象- 所有其他代码</font><font style="vertical-align: inherit;">与您在 DOM 上使用的</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代码相同。</font></font></strong><font style="vertical-align: inherit;"></font></p>
+
+<h2 id="using-web-workers-conveniently-from-the-dom"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从 DOM 方便地使用 Web Workers</font></font><a class="anchorjs-link " href="https://ashleyscirra.github.io/via.js/#using-web-workers-conveniently-from-the-dom" aria-label="锚" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Via.js 的工作方式也相反：您可以编写代码来对 Web Worker 而不是 DOM 进行调用。</font><font style="vertical-align: inherit;">这提供了一种在主线程之外完成昂贵的 JavaScript 调用的便捷方法，而无需编写消息传递系统。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以下是一些在 DOM 上运行的 JavaScript 代码，但基于工作调用演示，在工作线程中执行昂贵的计算：</font></font></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">primeCalculator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">via</span><span class="p">.</span><span class="nx">PrimeCalculator</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">primeCalculator</span><span class="p">.</span><span class="nx">IsPrime</span><span class="p">(</span><span class="mi">98245166901019</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">isPrime</span> <span class="o">=</span> <span class="k">await</span> <span class="kd">get</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">再次注意使用 来</font></font><code class="language-plaintext highlighter-rouge">via</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">创建</font></font><code class="language-plaintext highlighter-rouge">PrimeCalculator</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">on 工作人员。</font></font><code class="language-plaintext highlighter-rouge">IsPrime()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">会自动在工作线程上运行，即使它看起来像一个普通的调用。</font><font style="vertical-align: inherit;">最后，由于 Via.js 使用占位符对象而不是实际值，</font></font><code class="language-plaintext highlighter-rouge">await get()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">因此将从工作线程检索实际返回值。</font><font style="vertical-align: inherit;">（下面详细介绍其工作原理。）这一切都是在单个 postMessage 往返中处理的。</font></font></p>
+
+<h2 id="live-demos"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现场演示</font></font><a class="anchorjs-link " href="https://ashleyscirra.github.io/via.js/#live-demos" aria-label="锚" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<h3 id="using-the-dom-in-a-web-worker-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 Web Worker 中使用 DOM</font></font><a class="anchorjs-link " href="https://ashleyscirra.github.io/via.js/#using-the-dom-in-a-web-worker-1" aria-label="锚" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此处托管了一个基本演示，展示了 DOM 交互以及工作人员对 Web Audio API 的使用：</font></font><a href="https://ashleyscirra.github.io/via.js/demos/dom-in-worker"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">via.js/demos/dom-in-worker</font></font></a></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这适用于 Chrome、Firefox 和 Edge。</font><font style="vertical-align: inherit;">Safari 可以工作，但不能播放音频，因为演示只使用 AudioContext，而不是 webkitAudioContext，除此之外它工作正常。</font></font></p>
+
+<h3 id="using-web-workers-conveniently-from-the-dom-1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从 DOM 方便地使用 Web Workers</font></font><a class="anchorjs-link " href="https://ashleyscirra.github.io/via.js/#using-web-workers-conveniently-from-the-dom-1" aria-label="锚" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从 DOM 控制 Web Worker 的基本演示位于此处：</font></font><a href="https://ashleyscirra.github.io/via.js/demos/worker-calls"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">via.js/demos/worker-calls</font></font></a></p>
+
+<h1 id="how-it-works"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">怎么运行的</font></font></h1>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">JavaScript 的</font></font><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代理</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对象允许拦截对象设置、获取、调用等。</font><font style="vertical-align: inherit;">Via.js 使用代理对象的排列来简单地记录所有操作并构建命令队列。</font><font style="vertical-align: inherit;">函数返回值也由占位符表示，以便您可以继续调用它们。</font><font style="vertical-align: inherit;">这意味着只要您不需要从 DOM 返回信息（即调用</font></font><code class="language-plaintext highlighter-rouge">get()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">），您就可以进行任意数量的调用，并且只需要向主线程发送一条 postMessage。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这种方法值得注意的是，它不会发布 JavaScript 代码字符串和</font></font><code class="language-plaintext highlighter-rouge">eval()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">它们（这是一个相当丑陋的黑客），而且开销也相对较低。</font><font style="vertical-align: inherit;">特别是它不会像 ComLink 那样创建大量 MessageChannel。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Via.js 命令会在下一个要在主线程上处理的微任务中自动提交，同时也会将任何结果回发给</font></font><code class="language-plaintext highlighter-rouge">get()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">调用。</font><font style="vertical-align: inherit;">（您还可以使用 强制提交长时间运行的代码</font></font><code class="language-plaintext highlighter-rouge">Via.Flush()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，当主线程完成执行到该点的所有命令时，它会返回一个Promise解析。）Via.js 还通过创建一个将回调转发给工作线程的垫片来处理回调。 ，如前面示例中的“click”事件。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">例如，考虑以下几行：</font></font></p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">div</span> <span class="o">=</span> <span class="nx">via</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello world</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Via.js 构建的命令队列大致类似于：</font></font></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. call window.document.createElement with argument "div"<font></font>
+2. return a placeholder object with id 1<font></font>
+3. assign object id 1 property "textContent" value "Hello world"<font></font>
+</code></pre></div></div>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在下一个微任务中，这些命令通过 postMessage() 提交到主线程，并通过真实的 DOM 调用来执行。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">虽然这个示例很简单，但还有许多细节需要解决，例如将占位符对象作为函数参数传递、转发回调、从</font></font><code class="language-plaintext highlighter-rouge">get()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">调用返回值等。</font><font style="vertical-align: inherit;">然而，结果是一种令人惊讶的可用方法来编写在其他地方运行的代码，允许完全访问远程 API，例如在 Web Worker 中使用 DOM API 的任何部分。</font></font></p>
+
+<h2 id="memory-management"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内存管理</font></font><a class="anchorjs-link " href="https://ashleyscirra.github.io/via.js/#memory-management" aria-label="锚" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实现这种方法的主要困难是内存管理。</font><font style="vertical-align: inherit;">代表远程对象的每个代理都分配有一个 ID，远程（接收方）端保留 ID 到对象的映射，以便可以通过命令消息中的 ID 来访问它们。</font><font style="vertical-align: inherit;">然而，一旦控制器端完成代理并被垃圾收集，ID 映射也需要更新，因为它保留对对象的强引用，否则会泄漏未使用对象的内存。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">直到最近，这在 JavaScript 中还是不可能实现的。</font><font style="vertical-align: inherit;">然而，</font></font><a href="https://github.com/tc39/proposal-weakrefs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">WeakRefs 提案</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使 GC 可观察，从而可以识别代理何时被收集并向接收方发布清理消息，然后接收方删除未使用的映射条目。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">WeakRefs 在 Chrome 84+ 中默认启用，其他浏览器中的支持应该很快就会到来。</font><font style="vertical-align: inherit;">这应该使 Via.js 可以在生产中使用，因为它可以在长时间运行的应用程序中使用而不会泄漏内存。</font></font></p>
+
+<h1 id="api"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">应用程序编程接口</font></font></h1>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Via.js 需要您设置一个消息传递桥。</font><font style="vertical-align: inherit;">理论上，您可以做一些疯狂的事情，例如使用 WebSocket 或 DataChannel 桥并通过网络链接运行远程代码！</font><font style="vertical-align: inherit;">通常你只需包装 postMessage 即可。</font><font style="vertical-align: inherit;">对于真实的代码，请参阅示例如何执行此操作。</font><font style="vertical-align: inherit;">然而，假设您从 Worker 控制 DOM，那么控制器（worker）端会按照以下方式执行此操作：</font></font></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Via</span><span class="p">.</span><span class="nx">postMessage</span> <span class="o">=</span> <span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nb">self</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+<span class="nb">self</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">message</span><span class="dl">"</span><span class="p">,</span> <span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">Via</span><span class="p">.</span><span class="nx">OnMessage</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">接收方 (DOM) 端按照以下方式执行此操作：</font></font></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">worker</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">ViaReceiver</span><span class="p">.</span><span class="nx">OnMessage</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">));</span>
+<span class="nx">ViaReceiver</span><span class="p">.</span><span class="nx">postMessage</span> <span class="o">=</span> <span class="p">(</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="nx">worker</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">换句话说，非常简单，但高度可定制。</font><font style="vertical-align: inherit;">例如，您可以调整它以允许 iframe 相互控制。</font><font style="vertical-align: inherit;">您还可以包装消息传递函数，以某种方式标记 Via.js 消息，这样您仍然可以发送自己的单独消息，而不会干扰 Via.js，反之亦然。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一旦设置了消息桥，您就可以</font></font><code class="language-plaintext highlighter-rouge">via</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在控制器端使用该对象，就好像它是其他上下文中的全局对象一样。</font><font style="vertical-align: inherit;">例如，以下内容</font></font><code class="language-plaintext highlighter-rouge">AudioContext</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在主线程的全局范围内创建一个（对于 Web Audio API）（仍然假设 DOM-in-worker 设置）：</font></font></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">via</span><span class="p">.</span><span class="nx">audioContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">via</span><span class="p">.</span><span class="nx">AudioContext</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这相当于以下主线程调用：</font></font></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">audioContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">window</span><span class="p">.</span><span class="nx">AudioContext</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">然后您可以以几乎相同的方式进行进一步的调用，例如：</font></font></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">via</span><span class="p">.</span><span class="nx">audioContext</span><span class="p">.</span><span class="nx">decodeAudioData</span><span class="p">(</span><span class="nx">arrayBuffer</span><span class="p">,</span> <span class="nx">audioBuffer</span> <span class="o">=&gt;</span>
+<span class="p">{</span>
+	<span class="nb">self</span><span class="p">.</span><span class="nx">audioBuffer</span> <span class="o">=</span> <span class="nx">audioBuffer</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这会将参数发送到 DOM，执行调用</font></font><code class="language-plaintext highlighter-rouge">decodeAudioData</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，并填充回调以将其发送回将调用您的工作人员回调的工作人员。</font><font style="vertical-align: inherit;">此代码与您在 DOM 上编写的代码完全相同，除了</font></font><code class="language-plaintext highlighter-rouge">via.</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全局对象的使用之外。</font></font></p>
+
+<h2 id="retrieving-values-from-the-dom"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从 DOM 中检索值</font></font><a class="anchorjs-link " href="https://ashleyscirra.github.io/via.js/#retrieving-values-from-the-dom" aria-label="锚" data-anchorjs-icon="" style="font: 1em / 1 anchorjs-icons; padding-left: 0.375em;"></a></h2>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Via.js 从任何调用中返回代理包装器对象。</font><font style="vertical-align: inherit;">这让你可以继续调用，而不必等待任何结果，并且 Via.js 可以一次性发布所有命令，从而减少 postMessage 开销。</font><font style="vertical-align: inherit;">然而，这意味着任何调用的返回值实际上都是代理包装对象，即使它们是数字或布尔值等简单值。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您想从其他上下文检索实际值，则必须异步访问它，因为它需要 postMessage 往返。</font><font style="vertical-align: inherit;">Via.js 提供了一个全局</font></font><code class="language-plaintext highlighter-rouge">get()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数，它返回一个用请求的值解析的Promise，例如：</font></font></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">docTitle</span> <span class="o">=</span> <span class="k">await</span> <span class="kd">get</span><span class="p">(</span><span class="nx">via</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">title</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您可以并行查找多个值，这比一次等待每个属性更有效，例如：</font></font></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">[</span><span class="nx">docTitle</span><span class="p">,</span> <span class="nx">docUrl</span><span class="p">]</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span>
+	<span class="kd">get</span><span class="p">(</span><span class="nx">via</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">title</span><span class="p">),</span>
+	<span class="kd">get</span><span class="p">(</span><span class="nx">via</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">URL</span><span class="p">)</span>
+<span class="p">]);</span>
+</code></pre></div></div>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此过程都通过单个 postMessage 往返进行处理。</font></font></p>
+
+<h1 id="performance"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表现</font></font></h1>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我上次做性能测试是在大约两年前，所以这一部分需要更新。</font><font style="vertical-align: inherit;">然而，上次的结论是 Via.js 的开销相当低，甚至可以在移动设备上使用。</font><font style="vertical-align: inherit;">性能基准似乎主要是 GC 的瓶颈（可能收集命令列表），这可能可以改进。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在工作线程（而不是 DOM）中运行代码也有很大的性能优势。</font><font style="vertical-align: inherit;">例如，重要的 DOM 更新可能涉及较长的布局时间（例如 &gt;100 毫秒）。</font><font style="vertical-align: inherit;">当使用 Via.js 在 Worker 中运行代码时，浏览器响应 DOM 更改而执行的同步布局工作可以与 Worker 并行运行，这为您赢得了更多运行 JavaScript 的时间。</font></font></p>
+
+<h1 id="further-work"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">进一步的工作</font></font></h1>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">性能仍有待提高。</font><font style="vertical-align: inherit;">postMessage()的开销还是比较高的。</font><font style="vertical-align: inherit;">使用二进制格式并传输 ArrayBuffer，或者使用共享内存 (SharedArrayBuffer)，也许能够或多或少地完全消除这种开销。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">JavaScript 引擎可以尝试进一步优化代码来构建命令列表。</font><font style="vertical-align: inherit;">看起来好像发生了一些 GC 抖动。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有些API必须在回调中同步调用，例如</font></font><code class="language-plaintext highlighter-rouge">e.preventDefault()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">目前这些不适用于 Via.js，因为它必须执行 postMessage 往返来调用回调，然后发回新命令，此时事件处理程序已完成。</font><font style="vertical-align: inherit;">浏览器需要提供延迟机制来解决这个问题，而这又需要以某种方式集成到 Via.js 中。</font></font></p>
+
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可能需要做更多的工作来识别 Via.js 支持的内容中的差距、修复任何错误并改善开发人员体验，特别是确保在使用占位符对象出错时可以生成良好的错误消息。</font></font></p>
+
+
+      
+    </div>
+    <script src="./Via-zhCN_files/anchor.min.js.下载" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+
+
+</body><div style="all: initial;"><div id="__hcfy__" style="all: initial;"></div></div></html>
