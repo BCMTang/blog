@@ -7,7 +7,7 @@ src = "src"
 title = "tzj个人笔记"
 
 [Build]
-build-dir = "book/" # 渲染地址
+build-dir = "docs/" # 渲染地址
 create-missing = true # 目录文件不存在时是否生成文件
 
 [output.html.playground]

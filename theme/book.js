@@ -226,7 +226,7 @@ function playground_text(playground, hidden = true) {
 
                 var clipButton = document.createElement('button');
                 clipButton.className = 'fa fa-copy clip-button';
-                clipButton.title = 'Copy to clipboard';
+                clipButton.title = '复制到剪切板';
                 clipButton.setAttribute('aria-label', clipButton.title);
                 clipButton.innerHTML = '<i class=\"tooltiptext\"></i>';
 
@@ -260,7 +260,7 @@ function playground_text(playground, hidden = true) {
             var copyCodeClipboardButton = document.createElement('button');
             copyCodeClipboardButton.className = 'fa fa-copy clip-button';
             copyCodeClipboardButton.innerHTML = '<i class="tooltiptext"></i>';
-            copyCodeClipboardButton.title = 'Copy to clipboard';
+            copyCodeClipboardButton.title = '复制到剪切板';
             copyCodeClipboardButton.setAttribute('aria-label', copyCodeClipboardButton.title);
 
             buttons.insertBefore(copyCodeClipboardButton, buttons.firstChild);
@@ -606,7 +606,7 @@ function playground_text(playground, hidden = true) {
 
     clipboardSnippets.on('success', function (e) {
         e.clearSelection();
-        showTooltip(e.trigger, "Copied!");
+        showTooltip(e.trigger, "拷贝成功!");
     });
 
     clipboardSnippets.on('error', function (e) {
