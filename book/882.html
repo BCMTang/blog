@@ -1,0 +1,417 @@
+<!DOCTYPE HTML>
+<html lang="zh-cn" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <!-- 2023-08-02 09:16:28 tzj -->
+        <meta charset="UTF-8">
+        <title>滚动条插件 - tzj个人笔记</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="2023-07-28 11:09:13 tzj 过一遍组件库">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/css/nav2.css">
+        <link rel="stylesheet" href="theme/css/common.css">
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">首页</a></li><li class="chapter-item expanded affix "><a href="note.html">项目注意事项</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">PC内部组件库</li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.</strong> 基础类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="001.html"><strong aria-hidden="true">1.1.</strong> jQuery库</a></li><li class="chapter-item expanded "><a href="002.html"><strong aria-hidden="true">1.2.</strong> 分享组件shareV5</a></li><li class="chapter-item expanded "><a href="003.html"><strong aria-hidden="true">1.3.</strong> 图片查看器lightbox2</a></li><li class="chapter-item expanded "><a href="004.html"><strong aria-hidden="true">1.4.</strong> 官网订阅组件</a></li><li class="chapter-item expanded "><a href="005.html"><strong aria-hidden="true">1.5.</strong> 图册组件imageshow</a></li><li class="chapter-item expanded "><a href="006.html"><strong aria-hidden="true">1.6.</strong> 复制文本copytext</a></li><li class="chapter-item expanded "><a href="007.html"><strong aria-hidden="true">1.7.</strong> 弹层</a></li><li class="chapter-item expanded "><a href="008.html"><strong aria-hidden="true">1.8.</strong> 视频组件videoV2</a></li><li class="chapter-item expanded "><a href="009.html"><strong aria-hidden="true">1.9.</strong> 音频组件audio</a></li><li class="chapter-item expanded "><a href="010.html"><strong aria-hidden="true">1.10.</strong> 服务器时间组件bjTime</a></li><li class="chapter-item expanded "><a href="011.html"><strong aria-hidden="true">1.11.</strong> 插入flash</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.12.</strong> 翻页组件pager</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.13.</strong> 共用alert组件PopDialog</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.14.</strong> 表单验证组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.15.</strong> 序列组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.16.</strong> 3D相册轮播组件[旧版]</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.17.</strong> 3D相册轮播组件[V2版]</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.18.</strong> 二维码组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.19.</strong> 手游官网下载组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.20.</strong> 弹幕组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.21.</strong> 搜索模块</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.22.</strong> 滚动模块</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.23.</strong> 职业模块[废弃]</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.24.</strong> 文章内页</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.25.</strong> 营销点代码</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.26.</strong> 点击统计代码/监测代码</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">1.27.</strong> 内容工具组件</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.</strong> 高级类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">2.1.</strong> 快速注册</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.2.</strong> 登录组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.3.</strong> 投票系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.4.</strong> 评论系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.5.</strong> 抽奖效果组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.6.</strong> 图片延迟加载</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.7.</strong> 倒计时</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.8.</strong> 领取礼包码</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.9.</strong> 新站点申请章鱼[加白名单]</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.10.</strong> 预约接口手游</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.11.</strong> 手游os预约版下载地址</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">2.12.</strong> 新游预约组件旧版</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.</strong> 系统类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> PM系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> PM系统-源文件及配置</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.3.</strong> 新闻发布系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.4.</strong> 新闻发布系统-索引页面配置发布</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> 新闻发布系统-More页面配置发布</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> 新闻发布系统-消息内容页面配置发布</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.</strong> 投票系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.8.</strong> 百科系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.9.</strong> 图库系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.10.</strong> 评论系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.11.</strong> 点赞系统</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.12.</strong> 视频专区</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 其他类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> 微博话题墙</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">移动内部组件</li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 基础类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> 分享组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> 分享组件2</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.3.</strong> 加载组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.4.</strong> 摇一摇组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.5.</strong> 键启动组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.6.</strong> 分享监控组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.7.</strong> 视频H5组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.8.</strong> 手游渠道下载指引弹层</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">双端通用组件</li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 基础类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> 图片上传组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> 图片裁剪组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> 3D地图组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.4.</strong> 图文Metro流组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.5.</strong> 新版新游预约组件</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.6.</strong> 网页加载与错误监控统计</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.7.</strong> 反馈组件</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">外部组件列表</li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.</strong> 外部组件列表</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">7.1.</strong> 汇总</div></li></ol></li><li class="chapter-item expanded "><a href="882.html" class="active"><strong aria-hidden="true">8.</strong> 滚动条插件</a></li><li class="chapter-item expanded affix "><li class="part-title">FIS插件列表</li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.</strong> 编译插件</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">9.1.</strong> parser-html-ejs</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.2.</strong> postprocessor-include</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.3.</strong> postprocessor-replace</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">9.4.</strong> preprocessor-resload</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.</strong> 打包插件</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">10.1.</strong> deploy-local-supply</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.2.</strong> postpackager-html-encode</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.3.</strong> postpackager-supply</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.4.</strong> postpackager-tolist</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.5.</strong> postpackager-trueload</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.6.</strong> postpackager-usemin</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">10.7.</strong> postpackager-jpg-towebp</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">webpack插件列表</li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.</strong> loader</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">11.1.</strong> resload</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.2.</strong> html-supply</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">11.3.</strong> html-include</div></li></ol></li><li class="chapter-item expanded "><li class="part-title">DIY自制</li><li class="chapter-item expanded "><div><strong aria-hidden="true">12.</strong> css样式</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="888.html"><strong aria-hidden="true">12.1.</strong> css随笔</a></li><li class="chapter-item expanded "><a href="991.html"><strong aria-hidden="true">12.2.</strong> 栅格布局grid</a></li><li class="chapter-item expanded "><a href="992.html"><strong aria-hidden="true">12.3.</strong> 浏览器适配</a></li><li class="chapter-item expanded "><a href="993.html"><strong aria-hidden="true">12.4.</strong> 滚动条</a></li><li class="chapter-item expanded "><a href="886.html"><strong aria-hidden="true">12.5.</strong> less封装样式</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">13.</strong> js封装</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="899.html"><strong aria-hidden="true">13.1.</strong> 不规则div点击事件</a></li><li class="chapter-item expanded "><a href="996.html"><strong aria-hidden="true">13.2.</strong> 屏幕适配rem</a></li><li class="chapter-item expanded "><a href="887.html"><strong aria-hidden="true">13.3.</strong> webWorker多线程</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">14.</strong> html结构</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="892.html"><strong aria-hidden="true">14.1.</strong> 局部刷新</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> plugin第三方插件</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="997.html"><strong aria-hidden="true">15.1.</strong> 画布工具html2canvas</a></li><li class="chapter-item expanded "><a href="995.html"><strong aria-hidden="true">15.2.</strong> 文字生成二维码QRCode</a></li><li class="chapter-item expanded "><a href="994.html"><strong aria-hidden="true">15.3.</strong> 字体包压缩fontmin</a></li><li class="chapter-item expanded "><a href="897.html"><strong aria-hidden="true">15.4.</strong> node</a></li><li class="chapter-item expanded "><a href="889.html"><strong aria-hidden="true">15.5.</strong> video.js视频播放插件</a></li><li class="chapter-item expanded "><a href="885.html"><strong aria-hidden="true">15.6.</strong> 滚动条</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">16.</strong> utils工具使用</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="896.html"><strong aria-hidden="true">16.1.</strong> feg</a></li><li class="chapter-item expanded "><a href="891.html"><strong aria-hidden="true">16.2.</strong> rime小狼毫</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">17.</strong> 网络相关network</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="898.html"><strong aria-hidden="true">17.1.</strong> 文件上传file upload</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">18.</strong> other其他未分类</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="890.html"><strong aria-hidden="true">18.1.</strong> 图片生成字体</a></li><li class="chapter-item expanded "><a href="893.html"><strong aria-hidden="true">18.2.</strong> 随笔</a></li><li class="chapter-item expanded "><a href="990.html"><strong aria-hidden="true">18.3.</strong> 兼容性处理</a></li><li class="chapter-item expanded "><a href="999.html"><strong aria-hidden="true">18.4.</strong> diy</a></li><li class="chapter-item expanded "><a href="998.html"><strong aria-hidden="true">18.5.</strong> mdbook</a></li><li class="chapter-item expanded "><a href="blog.html"><strong aria-hidden="true">18.6.</strong> blog</a></li><li class="chapter-item expanded "><a href="895.html"><strong aria-hidden="true">18.7.</strong> 文档记录</a></li><li class="chapter-item expanded "><a href="894.html"><strong aria-hidden="true">18.8.</strong> 浏览器尺寸</a></li><li class="chapter-item expanded "><a href="884.html"><strong aria-hidden="true">18.9.</strong> video视频播放</a></li><li class="chapter-item expanded "><a href="883.html"><strong aria-hidden="true">18.10.</strong> 滚动条</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="998.html">说明</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="侧边栏显/隐" aria-label="侧边栏显/隐" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="修改主题" aria-label="修改主题" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="搜索(快捷键：Ctrl+F)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">tzj个人笔记</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="打印该文档" aria-label="打印该文档">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="全局搜索：Ctrl+F" aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="滚动条插件"><a class="header" href="#滚动条插件">滚动条插件</a></h1>
+<blockquote>
+<p>经常设置滚动条样式，整理下</p>
+</blockquote>
+<h2 id="目录"><a class="header" href="#目录">目录</a></h2>
+<ul>
+<li><a href="#NiceScroll">NiceScroll</a>
+<ul>
+<li><a href="#%E4%BD%BF%E7%94%A8">使用</a></li>
+<li><a href="#%E9%80%89%E9%A1%B9">选项</a></li>
+</ul>
+</li>
+<li><a href="#simplebar">simplebar</a>
+<ul>
+<li><a href="#%E8%8E%B7%E5%8F%96">获取</a></li>
+<li><a href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8">简单使用</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="nicescroll"><a class="header" href="#nicescroll">NiceScroll</a></h2>
+<ul>
+<li><a href="http://webpack.nie.netease.com/index.html#pack=pc_outline/scroll/nicescroll.html">说明文档</a></li>
+<li><a href="https://github.com/inuyaksa/jquery.nicescroll">github地址</a></li>
+<li>手机端引用<code>zepto(mixNIE).last.js</code>时报错信息：<span style="color:red">Uncaught TypeError: Cannot set properties of
+undefined (setting 'pageYOffset')</span></li>
+</ul>
+<h3 id="使用"><a class="header" href="#使用">使用</a></h3>
+<blockquote>
+<p>以下是NIE库，也可以去github找其他版本</p>
+</blockquote>
+<pre><code class="language-html">&lt;!-- 3.6.8版本 --&gt;
+&lt;script src=&quot;https://nie.res.netease.com/comm/js/nie/ref/jquery.nicescroll.3.6.8.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 3.5.4版本 --&gt;
+&lt;script src=&quot;https://nie.res.netease.com/comm/js/nie/ref/jquery.nicescroll.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<pre><code class="language-js">// 1. 简单模式，使用默认样式：
+$(function () {
+    $(&quot;body&quot;).niceScroll();
+});
+
+// 2. 返回实例对象：
+var nice = false;
+$(function () {
+    nice = $(&quot;body&quot;).niceScroll();
+});
+
+// 3. 设置DIV样式并更改光标颜色：
+$(function () {
+    $(&quot;#thisdiv&quot;).niceScroll({cursorcolor: &quot;#00F&quot;});
+});
+
+// 4. DIV带有&quot;包装&quot;，由两个DIV组成，第一个是包装，第二个是内容:
+$(function () {
+    $(&quot;#viewportdiv&quot;).niceScroll(&quot;#wrapperdiv&quot;, {cursorcolor: &quot;#00F&quot;});
+});
+
+// 5. 获取 nicescroll 对象:
+var nice = $(&quot;#mydiv&quot;).getNiceScroll();
+
+// 6. 隐藏 scrollbars:
+$(&quot;#mydiv&quot;).getNiceScroll().hide();
+
+// 7. 检查滚动条调整大小(当内容或位置发生变化时):
+$(&quot;#mydiv&quot;).getNiceScroll().resize();
+
+// 8. 滚动到指定位置:
+$(&quot;#mydiv&quot;).getNiceScroll(0).doScrollLeft(x, duration); // Scroll X Axis
+$(&quot;#mydiv&quot;).getNiceScroll(0).doScrollTop(y, duration); // Scroll Y Axis
+</code></pre>
+<h3 id="选项"><a class="header" href="#选项">选项</a></h3>
+<pre><code class="language-js">$(&quot;#thisdiv&quot;).niceScroll({
+    cursorcolor: &quot;#424242&quot;, // 改变光标颜色（十六进制）
+    cursoropacitymin: 0, // 当光标不活动时的透明度（滚动条“隐藏”状态），取值范围为1到0
+    cursoropacitymax: 1, // 当光标活动时的透明度（滚动条“可见”状态），取值范围为1到0
+    cursorwidth: &quot;5px&quot;, // 光标宽度，可以使用像素值或者&quot;5px&quot;这样的字符串
+    cursorborder: &quot;1px solid #fff&quot;, // 光标边框的 CSS 定义
+    cursorborderradius: &quot;5px&quot;, // 光标边框半径的像素值
+    zindex: &quot;auto&quot; | [number], // 滚动条 DIV 的 z-index 值
+    scrollspeed: 60, // 滚动速度
+    mousescrollstep: 40, // 鼠标滚轮滚动速度（像素）
+    touchbehavior: false, // 已废弃！使用 &quot;emulatetouch&quot; 代替
+    emulatetouch: false, // 在桌面电脑上启用类似触摸设备的光标拖动滚动
+    hwacceleration: true, // 如果支持，使用硬件加速滚动
+    boxzoom: false, // 启用内容区域的缩放
+    dblclickzoom: true, // （仅在 boxzoom=true 时有效）双击内容区域时启用缩放
+    gesturezoom: true, // （仅在 boxzoom=true，并且使用触摸设备时有效）双指捏合内容区域时启用缩放
+    grabcursorenabled: true, // （仅在 touchbehavior=true 时有效）显示“抓取”图标
+    autohidemode: true, // 滚动条隐藏方式，可选值:
+    // true | // 没有滚动时隐藏
+    // &quot;cursor&quot; | // 仅隐藏光标
+    // false | // 不隐藏
+    // &quot;leave&quot; | // 当指针离开内容区域时隐藏
+    // &quot;hidden&quot; | // 总是隐藏
+    // &quot;scroll&quot;, // 仅在滚动时显示
+    background: &quot;&quot;, // 改变滚动条背景的 CSS
+    iframeautoresize: true, // 在加载事件中自动调整 iframe 大小
+    cursorminheight: 32, // 设置光标的最小高度（像素）
+    preservenativescrolling: true, // 可以使用鼠标滚轮滚动原生可滚动区域
+    railoffset: false, // 可为纵向/横向滚动条添加偏移的 top/left 值
+    bouncescroll: false, //（仅对 hwaccel 缩放）启用内容区域末尾的反弹滚动效果，类似于移动设备上的效果
+    spacebarenabled: true, // 当按下空格键时允许页面向下滚动
+    railpadding: {top: 0, right: 0, left: 0, bottom: 0}, // 设置滚动条的 padding
+    disableoutline: true, // 对于 Chrome 浏览器，禁用选择 div 时的外框（橙色高亮）
+    horizrailenabled: true, // 允许 nicescroll 控制水平滚动
+    railalign: right, // 垂直滚动条的对齐方式
+    railvalign: bottom, // 水平滚动条的对齐方式
+    enabletranslate3d: true, // nicescroll 可以使用 CSS 的 translate 滚动内容
+    enablemousewheel: true, // nicescroll 可以处理鼠标滚轮事件
+    enablekeyboard: true, // nicescroll 可以处理键盘事件
+    smoothscroll: true, // 平滑滚动
+    sensitiverail: true, // 在滚动条上点击可以进行滚动
+    enablemouselockapi: true, // 可以使用鼠标捕获API（与对象拖动相同的问题）
+    cursorfixedheight: false, // 设置游标的固定高度（以像素为单位）
+    hidecursordelay: 400, // 设置毫秒级的延迟，以使滚动条淡出
+    directionlockdeadzone: 6, // 僵死区（以像素为单位），用于激活方向锁定
+    nativeparentscrolling: true, // 检测内容的底部并允许父元素滚动，像原生滚动一样
+    enablescrollonselection: true, // 选择文本时自动滚动内容
+    cursordragspeed: 0.3, // 用鼠标拖动选择时的速度
+    rtlmode: &quot;auto&quot;, // 水平滚动从左侧开始
+    cursordragontouch: false, // 在触摸/触摸行为模式下拖动游标
+    oneaxismousemode: &quot;auto&quot;, // 允许使用鼠标滚轮水平滚动只有水平内容时，如果为false（垂直滚动），则鼠标滚轮不会水平滚动，如果为auto，则会检测两轴鼠标
+    scriptpath: &quot;&quot;, // 定义自定义路径以用于boxmode图标（&quot;&quot; =&gt; 同一脚本路径）
+    preventmultitouchscrolling: true, // 防止多点触摸事件滚动
+    disablemutationobserver: false, // 强制禁用MutationObserver
+    enableobserver: true, // 启用DOM变化观察者，尝试在父元素或内容元素改变时调整/隐藏/显示
+    scrollbarid: false // 为nicescroll滚动条设置自定义ID 
+})
+</code></pre>
+<h2 id="simplebar"><a class="header" href="#simplebar">simplebar</a></h2>
+<ul>
+<li><a href="https://github.com/Grsmto/simplebar">github地址</a></li>
+<li><a href="https://github.com/Grsmto/simplebar/tree/master/packages/simplebar">说明文档 </a></li>
+</ul>
+<h3 id="获取"><a class="header" href="#获取">获取</a></h3>
+<pre><code class="language-shell">npm install simplebar
+</code></pre>
+<pre><code class="language-html">&lt;link href=&quot;https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;https://unpkg.com/simplebar@5.3.0/dist/simplebar.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="简单使用"><a class="header" href="#简单使用">简单使用</a></h3>
+<pre><code class="language-less">#test {
+    /* 滑轨样式 */
+    .simplebar-track.simplebar-vertical {
+        //display: block;
+        position: absolute;
+        background-color: rgba(143, 135, 124, 0.6);
+        right: -0.2rem;
+        width: 0.13rem;
+        border-radius: 0.05rem;
+        height: 4.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* 滑块样式 */
+    .simplebar-scrollbar.simplebar-visible:before {
+        background-color: #6b3e16;
+        border-radius: 0.05rem;
+        pointer-events: auto;
+
+        &amp;:before {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-js">$(document).ready(function () {
+    new SimpleBar(document.querySelector(&quot;#test&quot;),{
+        autoHide: false
+    });
+})
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="011.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="888.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="011.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="888.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script>
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <!---<script src="searcher2.js"></script>-->
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="theme/js/searcher2.js"></script>
+        <script src="theme/js/nav2.js"></script>
+        <script src="theme/js/markdown.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -16,7 +16,7 @@
     ```
 - 手机端预加载插件使用后，不能在初始化前找jQuery节点
 - 不支持async/await
-
+- 编译后会改很多东西，`let`、`const`会改成`var`,以为局部作用域，结果都是全局变量，所以要注意变量名重名。`test(){}`会变成：`test:function test(){}`，箭头函数会变成常规函数，且`this`被变量替换
 
 # 问题记录
 - 父div使用`position:absolute`,会导致img清晰度变低
@@ -31,3 +31,7 @@
 
 > 与position一起使用时都会出现。应该用flex居中
 
+##
+
+- 设置bgc十六进制透明度在nova9无效，rgba可以，详细待测
+- ios下，input禁用时的样式：https://www.jianshu.com/p/23cb4d6ac5d5
