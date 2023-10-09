@@ -174,6 +174,7 @@
 </blockquote>
 <h2 id="目录"><a class="header" href="#目录">目录</a></h2>
 <ul>
+<li><a href="#%E5%8E%9F%E7%94%9F%E5%86%99%E6%B3%95">原生写法</a></li>
 <li><a href="#NiceScroll">NiceScroll</a>
 <ul>
 <li><a href="#%E4%BD%BF%E7%94%A8">使用</a></li>
@@ -187,12 +188,31 @@
 </ul>
 </li>
 </ul>
+<h2 id="原生写法"><a class="header" href="#原生写法">原生写法</a></h2>
+<pre><code class="language-less">#test{
+  /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+  ::-webkit-scrollbar {
+    width: .24rem;
+  }
+
+  /*定义滚动条轨道 */
+  ::-webkit-scrollbar-track {
+    border: 1px solid #a79253;
+    border-radius: 4px;
+  }
+
+  /*定义滑块 */
+  ::-webkit-scrollbar-thumb {
+    background-color: #a4833d;
+  }
+}
+</code></pre>
 <h2 id="nicescroll"><a class="header" href="#nicescroll">NiceScroll</a></h2>
 <ul>
 <li><a href="http://webpack.nie.netease.com/index.html#pack=pc_outline/scroll/nicescroll.html">说明文档</a></li>
 <li><a href="https://github.com/inuyaksa/jquery.nicescroll">github地址</a></li>
-<li>手机端引用<code>zepto(mixNIE).last.js</code>时报错信息：<span style="color:red">Uncaught TypeError: Cannot set properties of
-undefined (setting 'pageYOffset')</span></li>
+<li>手机端引用<code>zepto(mixNIE).last.js</code>时报错信息：<span style="color:red">Uncaught TypeError: Cannot set properties of undefined (setting 'pageYOffset')</span></li>
+<li>zepto库里没有该组件，需要换成PC的jQuery库。</li>
 </ul>
 <h3 id="使用"><a class="header" href="#使用">使用</a></h3>
 <blockquote>
@@ -321,6 +341,11 @@ $(&quot;#mydiv&quot;).getNiceScroll(0).doScrollTop(y, duration); // Scroll Y Axi
         height: 4.5rem;
         top: 50%;
         transform: translateY(-50%);
+        /*safari里，必须加上这个，否则会有双滚动条*/
+        /* 隐藏默认滚动条 */
+        ::-webkit-scrollbar {
+          display: none;
+        }
     }
 
     /* 滑块样式 */
@@ -329,12 +354,10 @@ $(&quot;#mydiv&quot;).getNiceScroll(0).doScrollTop(y, duration); // Scroll Y Axi
         border-radius: 0.05rem;
         pointer-events: auto;
 
-        &amp;:before {
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
 }
 </code></pre>
