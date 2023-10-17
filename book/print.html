@@ -1885,7 +1885,7 @@ test(812,375)
 
     if (h / w &lt; 1) {
         console.log(&quot;横屏&quot;)
-        if ((h / w) &lt; (750 / 1624)) {
+        if ((h / w) &lt; (imgH / imgW)) {
             scale = w / imgW;
         } else {
             scale = h / imgH;
@@ -1895,7 +1895,7 @@ test(812,375)
         dom.css(&quot;height&quot;, `${oldH * scale}px`);
     } else {
         console.log(&quot;竖屏&quot;)
-        if ((h / w) &lt; (1624 / 750)) {
+        if ((h / w) &lt; (imgW / imgH)) {
             scale = w / imgH;
         } else {
             scale = h / imgW;
