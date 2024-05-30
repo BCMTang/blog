@@ -35,3 +35,6 @@
 
 - 设置bgc十六进制透明度在nova9无效，rgba可以，详细待测
 - ios下，input禁用时的样式：https://www.jianshu.com/p/23cb4d6ac5d5
+
+> 设置transform：translate();会导致父节点大小变化
+> 设置入场动画，刷新后，重新渲染计算位置，导致滚动高度异常
