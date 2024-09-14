@@ -4,7 +4,7 @@ language = "zh-cn"
 multilingual = false
 description = "2023-07-28 11:09:13 tzj 过一遍组件库"
 src = "src"
-title = "tzj个人笔记"
+title = "SBX个人笔记"
 
 [Build]
 build-dir = "book/" # 渲染地址
