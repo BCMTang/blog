@@ -4,7 +4,7 @@
         <!-- Book generated using mdBook -->
         <!-- 2023-08-02 09:16:28 tzj -->
         <meta charset="UTF-8">
-        <title>tzj个人笔记</title>
+        <title>SBX个人笔记</title>
         <meta name="robots" content="noindex" />
 
 
@@ -137,7 +137,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">tzj个人笔记</h1>
+                    <h1 class="menu-title">SBX个人笔记</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="打印该文档" aria-label="打印该文档">
@@ -1326,7 +1326,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_flexible_box_layout/Basic_c
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="css文字描边"><a class="header" href="#css文字描边">css文字描边</a></h1>
 <blockquote>
-<p>css有几种实现方法，各自有要优缺点。总结实现方法。2024-09-14 14:13:20 tzj</p>
+<p>css有几种实现方法，各自有优缺点。总结实现方法。2024-09-14 14:13:20 tzj</p>
 </blockquote>
 <blockquote>
 <p>OPPO pad 试了几种方法，显示异常，看起来是该机型在文字描边的css中，十六进制颜色不识别</p>
@@ -1345,7 +1345,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_flexible_box_layout/Basic_c
     html {
         /*font-size: 625%;*/
     }
-    p {
+    .demo p {
         font-size: 32px;
     }
     .stroke,text {
@@ -1420,6 +1420,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_flexible_box_layout/Basic_c
         z-index: -1;
     }
 </style>
+<div class="demo">
 <p>svg</p>
 <div class="stroke1">
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100">
@@ -1436,6 +1437,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_flexible_box_layout/Basic_c
 <div class="stroke stroke5" data-content="填充文字1234abcdABCD...!@#$%^&">填充文字1234abcdABCD...!@#$%^&</div>
 <p>before + rgb</p>
 <div class="stroke stroke6" data-content="填充文字1234abcdABCD...!@#$%^&">填充文字1234abcdABCD...!@#$%^&</div>
+</div>
 <h2 id="1svg实现"><a class="header" href="#1svg实现">1.svg实现</a></h2>
 <blockquote>
 <p>参考：<a href="https://juejin.cn/post/7307544166446956556">前端外描边完美实现</a></p>
@@ -1444,6 +1446,9 @@ https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_flexible_box_layout/Basic_c
 <li>优点：听说兼容性更好，更多的属性设置，更灵活设置描边效果</li>
 <li>缺点：使用的少不熟悉，调整更麻烦，部分属性和css,跟普通dom用法不一样，设置更复杂。比如换行需要额外处理</li>
 </ul>
+<blockquote>
+<p>说是兼容性好，实际在火狐Firefox显示异常，不知道有没有火狐内核的手机端浏览器，是否正常。也有可能下面的写法兼容性不好。</p>
+</blockquote>
 <pre><code class="language-html">&lt;div class=&quot;stroke1&quot;&gt;
     &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;100%&quot; height=&quot;100&quot;&gt;
         &lt;text x=&quot;50%&quot; y=&quot;0&quot; alignment-baseline=&quot;text-before-edge&quot; text-anchor=&quot;middle&quot;&gt;填充文字1234abcdABCD...!@#$%^&amp;&lt;/text&gt;

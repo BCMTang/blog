@@ -30,6 +30,6 @@ mdbook serve -o
 ```
 
 ```shell
-mdbook serve -n 192.168.0.111 -p 3000 -o
+mdbook serve -n 192.168.1.2 -p 3000 -o
 ```
 
